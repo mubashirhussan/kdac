@@ -4259,3 +4259,12 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+.price.price--large.price--show-badge .price-item.price-item--last {
+  color:#0020C2;
+}
+.price.price--large.price--show-badge .price-item.price-item--regular {
+  color:#0020C2;
+}
+.price .price-item {
+  color: #00FF00 !important; /* Green for all prices */
+}
