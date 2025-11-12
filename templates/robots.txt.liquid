@@ -1,0 +1,61 @@
+{% comment %}
+Custom robots.txt for KDAC – optimized for indexing and compliant with Google Merchant Center.
+Explicitly allow Googlebot, Googlebot-Image, and AdsBot-Google, and DO NOT block variant URLs.
+{% endcomment %}
+
+# --- Explicit allow for Merchant Center crawlers
+User-agent: Googlebot
+Allow: /
+Allow: /*?*variant=*
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Google Ads landing-page fetcher used by Shopping
+User-agent: AdsBot-Google
+Allow: /
+Allow: /*?*variant=*
+
+# --- Default rules for everyone else
+User-agent: *
+
+# Block internal/system areas
+Disallow: /admin
+Disallow: /cart
+Disallow: /carts
+Disallow: /orders
+Disallow: /account
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /search
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+Disallow: /.well-known/shopify/monorail
+Disallow: /cdn/wpm/*.js
+Disallow: /a/downloads/-/*
+Disallow: /apple-app-site-association
+
+# Allow main public sections
+Allow: /collections/
+Allow: /products/
+Allow: /blogs/
+Allow: /pages/
+Allow: /policies/
+Allow: /policies/contact-information
+
+# Keep filtered/sorted collection parameters blocked (OK for SEO)
+Disallow: /collections/*?*sort_by=*
+Disallow: /collections/*?*filter*=*
+
+# IMPORTANT: do NOT block variant URLs (needed for GMC checks)
+# (removed: Disallow: /*?*variant=*)
+
+# Prevent crawling of obvious drafts/duplicates (okay)
+Disallow: /collections/*-1$
+Disallow: /products/*-1$
+Disallow: /collections/drafts
+Disallow: /products/drafts
+
+# Sitemap
+Sitemap: https://kdac.com.au/sitemap.xml

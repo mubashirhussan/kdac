@@ -1,0 +1,42 @@
+Node modules
+node_modules/
+
+Shopify-specific files
+.DS_Store
+Thumbs.db
+
+Tailwind CSS build output
+assets/main.css
+assets/output.css
+
+Ignore logs and environment files
+*.log
+.env
+.env.local
+.env.development
+.env.production
+
+Ignore cache and temporary files
+.cache/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+Ignore npm and yarn files
+package-lock.json
+yarn.lock
+
+Shopify Theme files (ignore only if using theme kit)
+.shopify-cli/
+config.yml
+
+Ignore any other build outputs if applicable
+dist/
+public/
+
+Ignore any temporary files or backup files
+*~
+*.bak
+*.tmp
+.shopify

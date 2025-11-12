@@ -1,0 +1,128 @@
+{% comment %}
+  Our Brands Grid (Full Width)
+  Uses default Shopify section spacing + H3 title styling.
+{% endcomment %}
+
+<section class="brands-grid-section section">
+  <div class="page-width">
+    <!-- Proper section title aligned with others -->
+    <div class="section-header" style="margin-bottom: 2rem;">
+      {% if section.settings.title != blank %}
+        <h3 class="brands-grid-title">{{ section.settings.title }}</h3>
+      {% endif %}
+    </div>
+
+    <!-- Brand grid -->
+    <div class="brands-grid-container">
+      {% for block in section.blocks %}
+        <div class="brand-item" {{ block.shopify_attributes }}>
+          {% if block.settings.brand_link != blank %}
+            <a href="{{ block.settings.brand_link }}" target="_blank" rel="noopener noreferrer">
+          {% endif %}
+
+          {% if block.settings.brand_logo != blank %}
+            <div class="brand-logo-wrapper">
+              <img
+                src="{{ block.settings.brand_logo | image_url: width: 400 }}"
+                alt="{{ block.settings.brand_name | escape }}"
+                loading="lazy"
+                class="brand-logo-img">
+            </div>
+          {% endif %}
+
+          {% if block.settings.brand_link != blank %}
+            </a>
+          {% endif %}
+
+          {% if block.settings.brand_name != blank %}
+            <div class="brand-name">{{ block.settings.brand_name }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.brands-grid-section {
+  padding-top: 50px;
+  padding-bottom: 70px; /* extra space to prevent overlap with contact section */
+}
+.brands-grid-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-foreground-heading);
+  margin: 0;
+}
+.brands-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 40px 30px;
+  align-items: start;
+  justify-items: center;
+}
+.brand-item {
+  text-align: center;
+}
+.brand-logo-wrapper {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-logo-img {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+}
+.brand-name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-foreground);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Our Brands Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Our Brands"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_logo",
+          "label": "Brand logo"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand name"
+        },
+        {
+          "type": "url",
+          "id": "brand_link",
+          "label": "Brand link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Brands Grid"
+    }
+  ]
+}
+{% endschema %}

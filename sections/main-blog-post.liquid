@@ -1,0 +1,204 @@
+{%- comment -%}
+KDAC — Article with Sidebar (magazine layout)
+- Centered container (adjust in settings)
+- Left: title, meta (date + read time + author), hero, content
+- Right: Recent Posts list (excludes current) + Contact card (sticky)
+- Hero uses 4:3 with object-fit: contain, so logos/devices show fully
+{%- endcomment -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="k-article color-{{ section.settings.color_scheme }}"
+  style="--k-container: {{ section.settings.container_width }}px; --accent: {{ section.settings.accent_color }};"
+>
+  <div class="k-article__inner">
+
+    {% if section.settings.show_page_banner %}
+      <div class="k-banner">
+        <div class="k-banner__title">{{ section.settings.page_banner_title | default: blog.title }}</div>
+        {% if section.settings.page_banner_subtitle != blank %}
+          <div class="k-banner__subtitle">{{ section.settings.page_banner_subtitle }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="k-grid">
+      <!-- MAIN COLUMN -->
+      <div class="k-main">
+        <header class="k-head">
+          <h1 class="k-title">{{ article.title }}</h1>
+
+          {% assign words = article.content | strip_html | split: ' ' | size %}
+          {% assign minutes = words | divided_by: 220 | plus: 1 %}
+          <div class="k-meta">
+            <time datetime="{{ article.published_at | date: "%Y-%m-%d" }}">
+              {{ article.published_at | date: "%B %d, %Y" }}
+            </time>
+            <span class="dot">•</span>
+            <span>{{ minutes }} min read</span>
+            {% if article.author %}
+              <span class="dot">•</span>
+              <span>{{ article.author }}</span>
+            {% endif %}
+          </div>
+        </header>
+
+        {% if article.image %}
+          <figure class="k-hero">
+            {{ article.image | image_url: width: 1800 | image_tag: alt: article.title, loading: 'eager' }}
+          </figure>
+        {% endif %}
+
+        <article class="k-content rte">
+          {{ article.content }}
+        </article>
+      </div>
+
+      <!-- SIDEBAR -->
+      {% if section.settings.show_sidebar %}
+        <aside class="k-aside">
+          {% if section.settings.show_recent %}
+            {% assign recent_others = blog.articles | reject: "id", article.id | slice: 0, section.settings.recent_count %}
+            <div class="k-card">
+              <div class="k-card__title">Recent Posts</div>
+              <ul class="k-list">
+                {% for a in recent_others %}
+                  <li>
+                    <a href="{{ a.url }}">{{ a.title | truncate: 70 }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <a class="k-viewall" href="{{ blog.url }}">View All</a>
+            </div>
+          {% endif %}
+
+        </aside>
+      {% endif %}
+    </div>
+
+    {% if blog.comments_enabled? %}
+      <div class="k-comments">
+        <h2 class="h3">{{ 'blogs.article.comments_heading' | t: count: article.comments_count }}</h2>
+        <div class="k-comments__list">
+          {% paginate article.comments by 10 %}
+            {% for comment in article.comments %}
+              <div class="k-comment">
+                {{ comment.content }}
+                <div class="k-comment__meta">
+                  <span class="k-comment__name">{{ comment.author }}</span>
+                  <span>•</span>
+                  <span class="k-comment__date">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                </div>
+              </div>
+            {% endfor %}
+            <div class="k-comments__pagination">
+              {{ paginate | default_pagination }}
+            </div>
+          {% endpaginate %}
+        </div>
+        {% render 'blog-comment-form', article: article, section_id: section.id %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% stylesheet %}
+  /* Vars & container */
+  .k-article{ --muted:#6b7280; --border:#e8ecf4; --card:#fff; }
+  .k-article__inner{ max-width:var(--k-container, 1100px); margin:0 auto; padding:0 16px; }
+
+  /* Optional banner */
+  .k-banner{ margin: 10px 0 18px; }
+  .k-banner__title{
+    display:inline-block; background: rgba(17,17,17,.06); color:#111;
+    padding:14px 18px; border-radius:16px; font-weight:800; font-size: clamp(18px, 2vw, 22px);
+  }
+  .k-banner__subtitle{ margin-top:6px; color:var(--muted); }
+
+  /* Two-column grid */
+  .k-grid{ display:grid; grid-template-columns: minmax(0,1fr) 290px; gap:34px; align-items:start; }
+  @media (max-width: 1000px){ .k-grid{ grid-template-columns: 1fr; } }
+
+  /* Head */
+  .k-title{ margin: 8px 0 8px; line-height:1.15; font-size: clamp(26px,3.2vw,36px); font-weight:800; color: var(--accent, #0046ff); }
+  .k-meta{ display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); margin-bottom:14px; }
+  .k-meta .dot{ opacity:.6; }
+
+  /* Hero (image fully visible) */
+  .k-hero{ margin: 14px 0 18px; border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 8px 26px rgba(0,0,0,.06); }
+  .k-hero img{ width:100%; aspect-ratio: 4 / 3; object-fit: contain; background:#fff; }
+
+  /* Content */
+  .k-content{ font-size:1.03rem; line-height:1.7; color:#263238; }
+  .k-content h2{ margin:24px 0 10px; font-size: clamp(20px, 2.2vw, 26px); line-height:1.25; }
+  .k-content h3{ margin:20px 0 8px; font-size: clamp(18px, 2vw, 22px); }
+  .k-content p{ margin: 0 0 14px; }
+  .k-content ul, .k-content ol{ margin:0 0 16px 20px; }
+  .k-content img{ width:100%; height:auto; border-radius:12px; margin:14px 0; }
+  .k-content a{ color: var(--accent, #0046ff); }
+
+  /* Sidebar */
+  .k-aside{ position: sticky; top: 96px; display:flex; flex-direction:column; gap:16px; height: fit-content; }
+  @media (max-width: 1000px){ .k-aside{ position: static; } }
+  .k-card{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    box-shadow:0 6px 18px rgba(0,0,0,.04); padding:16px;
+  }
+  .k-card__title{ font-weight:800; margin:2px 0 10px; }
+  .k-list{ list-style:none; padding:0; margin:0 0 8px; display:flex; flex-direction:column; gap:10px; }
+  .k-list a{ color:#111; text-decoration:none; }
+  .k-list a:hover{ color: var(--accent, #0046ff); }
+  .k-viewall{ display:inline-block; margin-top:6px; font-weight:700; color: var(--accent, #0046ff); text-decoration:none; }
+
+  .k-card__text{ color:#374151; margin:0 0 12px; }
+  .k-btn{
+    display:inline-block; padding:10px 16px; border-radius:999px; text-decoration:none;
+    background: var(--accent, #0046ff); color:#fff; font-weight:800;
+  }
+  .k-btn:hover{ filter: brightness(.92); }
+
+  /* Comments */
+  .k-comments{ margin-top:28px; }
+  .k-comments__list{ display:flex; flex-direction:column; gap:22px; }
+  .k-comment{ padding:12px 0; border-bottom:1px solid var(--border); }
+  .k-comment__meta{ display:flex; gap:8px; color:var(--muted); font-size:.92rem; margin-top:6px; }
+  .k-comments__pagination{ display:flex; justify-content:center; gap:12px; margin-top:8px; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "KDAC Article",
+  "class": "section-wrapper",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    {
+      "type":"range","id":"container_width","label":"Content width",
+      "min":800,"max":1200,"step":10,"unit":"px","default":1080
+    },
+    { "type":"color","id":"accent_color","label":"Accent color","default":"#0046ff" },
+
+    { "type":"header","content":"Sidebar" },
+    { "type":"checkbox","id":"show_sidebar","label":"Show sidebar","default":true },
+    { "type":"checkbox","id":"show_recent","label":"Show recent posts","default":true },
+    { "type":"range","id":"recent_count","label":"Recent posts count","min":3,"max":10,"step":1,"default":6 },
+
+    { "type":"checkbox","id":"show_contact","label":"Show contact card","default":true },
+    { "type":"text","id":"contact_title","label":"Contact title","default":"Get In Touch" },
+    { "type":"textarea","id":"contact_text","label":"Contact text","default":"Need help choosing the right product or booking an install? Our team is happy to help." },
+    { "type":"text","id":"contact_btn","label":"Contact button label","default":"Contact Us" },
+    { "type":"url","id":"contact_link","label":"Contact button link" },
+
+    { "type":"header","content":"Page banner (optional)" },
+    { "type":"checkbox","id":"show_page_banner","label":"Show small banner title above article","default":false },
+    { "type":"text","id":"page_banner_title","label":"Banner title","default":"Expert Advice & News" },
+    { "type":"text","id":"page_banner_subtitle","label":"Banner subtitle","default":"Subtitle text" }
+
+  ],
+  "presets": []
+}
+{% endschema %}

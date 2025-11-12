@@ -1,0 +1,82 @@
+<!doctype html>
+<html
+  class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}"
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+    {%- render 'stylesheets' -%}
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <link rel="expect" href="#MainContent" id="view-transition-render-blocker">
+
+    {%- render 'meta-tags' -%}
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+
+    <!-- Conditional noindex -->
+    {%- capture qs -%}{{ request.query_string | downcase }}{%- endcapture -%}
+    {%- assign path = request.path | downcase -%}
+    {%- if template.name == 'search'
+      or template.name == 'cart'
+      or template.name == 'login'
+      or template.name == 'register'
+      or template.name == 'account'
+      or template.name == 'reset_password'
+      or template.name == 'gift_card'
+      or template.name == '404'
+      or path contains '/checkouts'
+      or qs contains 'sort_by='
+      or qs contains 'filter='
+    -%}
+      <meta name="robots" content="noindex, nofollow">
+    {%- endif -%}
+
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
+    {% endif %}
+
+    {{ content_for_header }}
+
+    <!-- Website Speedy Scripts -->
+    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_1.js" defer></script>
+    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_2.js" defer></script>
+    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_3.js" defer></script>
+  </head>
+
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+
+    <div id="header-group">
+      {% sections 'header-group' %}
+    </div>
+
+    <script src="{{ 'critical.js' | asset_url }}" type="module" defer></script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+    {% render 'search-modal' %}
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+  </body>
+</html>

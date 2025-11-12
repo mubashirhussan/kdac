@@ -1,0 +1,169 @@
+{% assign block_settings = block.settings %}
+
+<div
+  class="payment-icons spacing-style"
+  style="
+    {% render 'spacing-padding', settings: block_settings %}
+    --icon-gap: {{ block_settings.gap }}px;
+    --alignment: {{ block_settings.horizontal_alignment }};
+  "
+  {{ block.shopify_attributes }}
+>
+  <span class="visually-hidden">{{ 'blocks.payment_methods' | t }}</span>
+  <ul class="payment-icons__list" role="list">
+    {%- for type in shop.enabled_payment_types -%}
+      <li class="payment-icons__item">
+        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+      </li>
+    {%- endfor -%}
+
+    <!-- Custom Payment Icons -->
+    <li class="payment-icons__item" aria-label="Afterpay">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/AP_logo_badge_6328x2204_blackmint_png-6328x2204-4ffc2bc.png?v=1760662714"
+        alt="Afterpay"
+        class="custom-payment-icon"
+        loading="lazy"
+      >
+    </li>
+
+    <li class="payment-icons__item" aria-label="Zip Pay">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/Zip.png?v=1760663048"
+        alt="Zip Pay"
+        class="custom-payment-icon zip-icon"
+        loading="lazy"
+      >
+    </li>
+
+    <li class="payment-icons__item" aria-label="Klarna">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/IMG_1184.png?v=1760662198"
+        alt="Klarna"
+        class="custom-payment-icon"
+        loading="lazy"
+      >
+    </li>
+  </ul>
+</div>
+
+{% stylesheet %}
+.payment-icons {
+  width: 100%;
+}
+
+.payment-icons__list {
+  display: flex;
+  align-items: center;
+  justify-content: var(--alignment);
+  flex-wrap: wrap;
+  gap: var(--icon-gap);
+  margin: 0;
+  padding: 0;
+}
+
+.payment-icons__item {
+  display: flex;
+  align-items: center;
+}
+
+.payment-icons__item img,
+.payment-icons__item svg,
+.custom-payment-icon {
+  height: 28px;
+  width: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 3px 6px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+  display: block;
+  object-fit: contain;
+}
+
+/* Zip icon balanced for better alignment */
+.custom-payment-icon.zip-icon {
+  height: 27px;
+  margin-top: 1px;
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.payment_icons",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "t:settings.alignment",
+      "options": [
+        { "value": "flex-start", "label": "t:options.left" },
+        { "value": "center", "label": "t:options.center" },
+        { "value": "flex-end", "label": "t:options.right" },
+        { "value": "space-between", "label": "t:options.space_between" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.payment_icons",
+      "category": "t:categories.footer"
+    }
+  ]
+}
+{% endschema %}

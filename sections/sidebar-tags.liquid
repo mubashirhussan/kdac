@@ -1,0 +1,6 @@
+{% for tag in collection.all_tags %}
+  <label>
+    <input type="checkbox" value="{{ tag | handle }}">
+    {{ tag }}
+  </label>
+{% endfor %}
