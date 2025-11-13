@@ -1,0 +1,295 @@
+{%- doc -%}
+  Renders a "Request for Quote" form for products that require a quote instead of direct purchase.
+  This form collects customer information and sends it to specified email addresses.
+
+  @param {object} product - The product object to request a quote for.
+  @param {string} [class] - Additional CSS classes to apply to the form.
+{%- enddoc -%}
+
+{%- liquid
+  assign info_message = settings.quote_form_info_message | default: 'This product requires a quote. Please fill out the form below and we will get back to you shortly.'
+  assign button_text = settings.quote_form_button_text | default: 'Request Quote'
+  assign success_message = settings.quote_success_message | default: 'Thank you! Your quote request has been sent. We will contact you shortly.'
+  assign error_message = settings.quote_error_message | default: 'There was an error sending your request. Please try again or contact us directly.'
+-%}
+
+<div class="request-quote-form-wrapper {{ class }}">
+  <request-quote-component
+    data-product-id="{{ product.id }}"
+    data-product-title="{{ product.title | escape }}"
+    data-product-url="{{ product.url | within: collection }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+  >
+    {%- assign quote_form_id = 'QuoteForm-' | append: product.id -%}
+    {%- form 'contact', id: quote_form_id, class: 'request-quote-form' -%}
+      <div class="request-quote-form__message request-quote-form__message--info">
+        <span class="svg-wrapper">
+          {{- 'icon-inventory.svg' | inline_asset_content -}}
+        </span>
+        <p>{{ info_message }}</p>
+      </div>
+
+      <div class="request-quote-form__fields">
+        <div class="request-quote-form__field">
+          <label for="quote-name-{{ product.id }}">
+            {{ 'contact.form.name' | t | default: 'Name' }}
+            <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="quote-name-{{ product.id }}"
+            name="contact[name]"
+            required
+            placeholder="{{ 'contact.form.name' | t | default: 'Name' }}"
+          >
+        </div>
+
+        <div class="request-quote-form__field">
+          <label for="quote-email-{{ product.id }}">
+            {{ 'contact.form.email' | t | default: 'Email' }}
+            <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="quote-email-{{ product.id }}"
+            name="contact[email]"
+            required
+            placeholder="{{ 'contact.form.email' | t | default: 'your@email.com' }}"
+          >
+        </div>
+
+        <div class="request-quote-form__field">
+          <label for="quote-phone-{{ product.id }}">
+            {{ 'contact.form.phone' | t | default: 'Phone Number' }}
+          </label>
+          <input
+            type="tel"
+            id="quote-phone-{{ product.id }}"
+            name="contact[phone]"
+            placeholder="{{ 'contact.form.phone' | t | default: 'Phone Number' }}"
+          >
+        </div>
+
+        <div class="request-quote-form__field">
+          <label for="quote-company-{{ product.id }}">
+            {{ 'contact.form.company' | t | default: 'Company' }}
+          </label>
+          <input
+            type="text"
+            id="quote-company-{{ product.id }}"
+            name="contact[company]"
+            placeholder="{{ 'contact.form.company' | t | default: 'Company Name' }}"
+          >
+        </div>
+
+        <div class="request-quote-form__field request-quote-form__field--full">
+          <label for="quote-quantity-{{ product.id }}">
+            {{ 'products.product.quantity' | t | default: 'Quantity' }}
+            <span class="required">*</span>
+          </label>
+          <input
+            type="number"
+            id="quote-quantity-{{ product.id }}"
+            name="contact[quantity]"
+            min="1"
+            value="1"
+            required
+          >
+        </div>
+
+        {% if product.has_only_default_variant == false %}
+          <div class="request-quote-form__field request-quote-form__field--full">
+            <label for="quote-variant-{{ product.id }}">
+              {{ 'products.product.variant' | t | default: 'Selected Variant' }}
+            </label>
+            <input
+              type="text"
+              id="quote-variant-{{ product.id }}"
+              name="contact[variant]"
+              value="{{ product.selected_or_first_available_variant.title }}"
+              readonly
+            >
+          </div>
+        {% endif %}
+
+        <div class="request-quote-form__field request-quote-form__field--full">
+          <label for="quote-message-{{ product.id }}">
+            {{ 'contact.form.comment' | t | default: 'Message' }}
+          </label>
+          <textarea
+            id="quote-message-{{ product.id }}"
+            name="contact[message]"
+            rows="4"
+            placeholder="{{ 'contact.form.comment' | t | default: 'Additional information or questions...' }}"
+          ></textarea>
+        </div>
+      </div>
+
+      <input type="hidden" name="contact[product_id]" value="{{ product.id }}">
+      <input type="hidden" name="contact[product_title]" value="{{ product.title | escape }}">
+      <input type="hidden" name="contact[product_url]" value="{{ shop.url }}{{ product.url }}">
+      <input type="hidden" name="contact[variant_id]" value="{{ product.selected_or_first_available_variant.id }}">
+
+      <div class="request-quote-form__actions">
+        <button
+          type="submit"
+          class="button request-quote-form__submit"
+          data-submit-button
+        >
+          <span data-button-text>
+            {{ button_text }}
+          </span>
+          <span data-button-loading class="hidden">
+            {{ 'products.product.sending' | t | default: 'Sending...' }}
+          </span>
+        </button>
+      </div>
+
+      <div class="request-quote-form__message request-quote-form__message--success hidden" data-success-message>
+        <span class="svg-wrapper">
+          {{- 'icon-checkmark.svg' | inline_asset_content -}}
+        </span>
+        <p>{{ success_message }}</p>
+      </div>
+
+      <div class="request-quote-form__message request-quote-form__message--error hidden" data-error-message>
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        <p data-error-text>{{ error_message }}</p>
+      </div>
+    {%- endform -%}
+  </request-quote-component>
+</div>
+
+{% stylesheet %}
+  .request-quote-form-wrapper {
+    width: 100%;
+  }
+
+  .request-quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+  }
+
+  .request-quote-form__message {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-sm);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-sm, 4px);
+    font-size: var(--font-size--sm);
+  }
+
+  .request-quote-form__message--info {
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
+    color: #1976d2;
+  }
+
+  .request-quote-form__message--success {
+    background-color: #e8f5e9;
+    border: 1px solid #81c784;
+    color: #388e3c;
+  }
+
+  .request-quote-form__message--error {
+    background-color: #ffebee;
+    border: 1px solid #ef5350;
+    color: #c62828;
+  }
+
+  .request-quote-form__message .svg-wrapper {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+
+  .request-quote-form__message p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .request-quote-form__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+
+  @media screen and (max-width: 749px) {
+    .request-quote-form__fields {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .request-quote-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
+  .request-quote-form__field--full {
+    grid-column: 1 / -1;
+  }
+
+  .request-quote-form__field label {
+    font-size: var(--font-size--sm);
+    font-weight: 500;
+    color: var(--color-foreground);
+  }
+
+  .request-quote-form__field .required {
+    color: #c62828;
+  }
+
+  .request-quote-form__field input,
+  .request-quote-form__field textarea {
+    padding: var(--padding-sm) var(--padding-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm, 4px);
+    font-size: var(--font-size--md);
+    font-family: var(--font-body--family);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition: border-color 0.2s ease;
+  }
+
+  .request-quote-form__field input:focus,
+  .request-quote-form__field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .request-quote-form__field input[readonly] {
+    background-color: var(--color-background-secondary, #f5f5f5);
+    cursor: not-allowed;
+  }
+
+  .request-quote-form__field textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .request-quote-form__actions {
+    display: flex;
+    gap: var(--gap-sm);
+  }
+
+  .request-quote-form__submit {
+    width: 100%;
+    padding: var(--padding-lg) var(--padding-4xl);
+    position: relative;
+  }
+
+  .request-quote-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+{% endstylesheet %}
+

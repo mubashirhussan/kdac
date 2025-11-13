@@ -2326,5 +2326,59 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Request for Quote",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Configure email addresses for receiving quote requests. Quote requests are triggered when products have the tag 'request-quote', 'quote-required', or 'request_quote'."
+      },
+      {
+        "type": "text",
+        "id": "quote_email_primary",
+        "label": "Primary email address",
+        "info": "Main email to receive quote requests. If left blank, your store's default email will be used.",
+        "placeholder": "quotes@yourdomain.com"
+      },
+      {
+        "type": "text",
+        "id": "quote_email_secondary",
+        "label": "Secondary email address (optional)",
+        "info": "Additional email to receive quote requests. Leave blank if not needed.",
+        "placeholder": "sales@yourdomain.com"
+      },
+      {
+        "type": "header",
+        "content": "Form Messages"
+      },
+      {
+        "type": "textarea",
+        "id": "quote_form_info_message",
+        "label": "Information message",
+        "info": "Message shown at the top of the quote request form",
+        "default": "This product requires a quote. Please fill out the form below and we will get back to you shortly."
+      },
+      {
+        "type": "text",
+        "id": "quote_form_button_text",
+        "label": "Submit button text",
+        "default": "Request Quote"
+      },
+      {
+        "type": "textarea",
+        "id": "quote_success_message",
+        "label": "Success message",
+        "info": "Message shown after successful submission",
+        "default": "Thank you! Your quote request has been sent. We will contact you shortly."
+      },
+      {
+        "type": "textarea",
+        "id": "quote_error_message",
+        "label": "Error message",
+        "info": "Message shown if submission fails",
+        "default": "There was an error sending your request. Please try again or contact us directly."
+      }
+    ]
   }
 ]

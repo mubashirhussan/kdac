@@ -305,7 +305,19 @@
       "added_to_cart": "Added to cart",
       "add_to_cart_error": "Error adding to cart",
       "sold_out": "Sold out",
-      "unavailable": "Unavailable"
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "variant": "Selected Variant",
+      "sending": "Sending..."
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "company": "Company",
+      "comment": "Message"
     }
   }
 }
