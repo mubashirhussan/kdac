@@ -736,7 +736,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -1137,7 +1137,7 @@
               "settings": {
                 "text": "<p>The <strong>Domus Infinity 6-in-1 Premium Slimline Bathroom Heater</strong> is a modern <strong>all-in-one ceiling bathroom heater with LED light and exhaust fan</strong> that combines powerful heating, bright LED lighting, effective ventilation, and year-round comfort in one sleek design. Built for <strong>energy efficiency</strong> and everyday convenience, it quickly warms up your bathroom in winter, provides refreshing airflow in summer, and keeps the space well-lit and ventilated all year long. Its <strong>slimline profile</strong> blends seamlessly with any bathroom style, while the premium build ensures durability and reliable performance. Perfect for homeowners who want a <strong>space-saving, multi-function bathroom ceiling heater</strong> that delivers comfort, style, and efficiency in a single solution.</p>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -1307,7 +1307,7 @@
               "settings": {
                 "text": "<p>Daikin BRP15B61 WiFi Aircon Controller gives you seamless remote control of your air conditioning system through the Airbase app on iOS or Android. In conjunction with Daikin’s BRP15B61 wireless LAN adaptor, the Airbase app lets you use your smartphone or tablet2 to operate your air conditioning unit via your inhome Wi-Fi or remotely with an internet connection. Up to 10 systems3 can be conveniently monitored and controlled on the app anywhere, anytime.</p><ul><li>Turn on and set the temperature of your air conditioning system in advance of your arrival</li><li>Remote parental control capability while children are home alone</li><li>Free iOS & Android apps available for download</li><li>Zone control supported in conjunction with Daikin BRC2474 or BRC24Z8 Controller</li><li>Complies with Australian Standards: SAA Approved</li><li>Universal mounting: suitable for both horizontal or vertical installation; switch mechanisms can be popped out and rotated</li></ul>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
