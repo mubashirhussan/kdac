@@ -12,6 +12,12 @@ body {
   font-variation-settings: 'slnt' 0;
 }
 
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
 :root {
   --hover-lift-amount: 4px;
   --hover-scale-amount: 1.03;
