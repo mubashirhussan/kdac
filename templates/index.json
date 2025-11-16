@@ -1665,7 +1665,7 @@
             "border_opacity": 100,
             "border_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 20,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -1721,17 +1721,17 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 0,
-            "inherit_color_scheme": false,
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
             "color_scheme": "",
-            "border": "solid",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 10,
-            "padding-block-start": 10,
-            "padding-block-end": 10,
-            "padding-inline-start": 10,
-            "padding-inline-end": 10
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {
             "product_card_gallery_z6Lwbx": {
@@ -1739,10 +1739,10 @@
               "name": "t:names.product_card_media",
               "settings": {
                 "image_ratio": "adapt",
-                "border": "solid",
+                "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 10,
+                "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1757,8 +1757,8 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
@@ -1782,15 +1782,15 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "custom",
+                "type_preset": "h6",
                 "width": "100%",
                 "alignment": "left",
-                "font": "var(--font-heading--family)",
+                "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
-                "color": "var(--color-foreground-heading)",
+                "color": "var(--color-foreground)",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1836,6 +1836,7 @@
         "text_TPp7En": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<p>Reliable electrical solutions including wiring, switches, and smart home devices for Australian homes.</p>",
             "width": "fit-content",
@@ -2059,6 +2060,7 @@
         "text_nTF6f8": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<p>Ventilation Fans: A good Ventilation fan is more than just a household accessory it’s an essential fixture for maintaining comfort, airflow, and a healthy environment. At KDAC, we provide a wide range of Ventilationfans that fit seamlessly into kitchens, bathrooms, and ceilings across homes and commercial properties. Whether you’re looking for a bathroom exhaust fan, a kitchen ventilation fan, or a sleek ceiling ventilation fan, our collection is designed to improve indoor air quality while keeping energy use efficient.</p>",
             "width": "fit-content",
@@ -2283,6 +2285,7 @@
         "text_TWFHKK": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<p>Security: Protect your home with reliable security solutions and peace of mind.</p>",
             "width": "fit-content",
