@@ -1721,17 +1721,17 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
+            "product_card_gap": 0,
+            "inherit_color_scheme": false,
             "color_scheme": "",
             "border": "solid",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 20,
+            "border_radius": 10,
             "padding-block-start": 10,
             "padding-block-end": 10,
             "padding-inline-start": 10,
-            "padding-inline-end": 0
+            "padding-inline-end": 10
           },
           "blocks": {
             "product_card_gallery_z6Lwbx": {
