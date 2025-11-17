@@ -2765,8 +2765,8 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Frequently asked questions</h3>",
-            "width": "fit-content",
+            "text": "<h3>FAQs</h3>",
+            "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
             "type_preset": "rte",
