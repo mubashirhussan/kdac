@@ -686,7 +686,7 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-1",
+            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -701,7 +701,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "landscape",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1500,21 +1500,21 @@
             "product_card_gap": 4,
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "border": "none",
+            "border": "solid",
             "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "border_opacity": 20,
+            "border_radius": 20,
+            "padding-block-start": 10,
+            "padding-block-end": 10,
+            "padding-inline-start": 10,
+            "padding-inline-end": 10
           },
           "blocks": {
             "product_card_gallery_8ebtMp": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1536,7 +1536,7 @@
                 "type_preset": "custom",
                 "font": "var(--font-heading--family)",
                 "font_size": "1rem",
-                "line_height": "normal",
+                "line_height": "tight",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "balance",
@@ -1962,7 +1962,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -2411,7 +2411,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
