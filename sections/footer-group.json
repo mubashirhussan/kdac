@@ -28,7 +28,7 @@
         "text_krhmm8": {
           "type": "text",
           "settings": {
-            "text": "<h2>Contact us</h2>",
+            "text": "<h3>Contact us</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -54,9 +54,9 @@
           "type": "contact-form",
           "settings": {
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 80,
             "width_mobile": "custom",
-            "custom_width_mobile": 100,
+            "custom_width_mobile": 80,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-1",
             "padding-block-start": 0,
