@@ -117,6 +117,7 @@
     },
     "divider_R9KjDw": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -174,6 +175,7 @@
         "divider_hFm3am": {
           "type": "_divider",
           "name": "t:names.divider",
+          "disabled": true,
           "settings": {
             "thickness": 1,
             "corner_radius": "square",
@@ -187,7 +189,7 @@
           "type": "payment-icons",
           "name": "t:names.payment_icons",
           "settings": {
-            "horizontal_alignment": "center",
+            "horizontal_alignment": "flex-start",
             "gap": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
