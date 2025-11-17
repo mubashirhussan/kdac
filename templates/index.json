@@ -1307,7 +1307,7 @@
               "settings": {
                 "text": "<p>Daikin BRP15B61 WiFi Aircon Controller gives you seamless remote control of your air conditioning system through the Airbase app on iOS or Android. In conjunction with Daikin’s BRP15B61 wireless LAN adaptor, the Airbase app lets you use your smartphone or tablet2 to operate your air conditioning unit via your inhome Wi-Fi or remotely with an internet connection. Up to 10 systems3 can be conveniently monitored and controlled on the app anywhere, anytime.</p><ul><li>Turn on and set the temperature of your air conditioning system in advance of your arrival</li><li>Remote parental control capability while children are home alone</li><li>Free iOS & Android apps available for download</li><li>Zone control supported in conjunction with Daikin BRC2474 or BRC24Z8 Controller</li><li>Complies with Australian Standards: SAA Approved</li><li>Universal mounting: suitable for both horizontal or vertical installation; switch mechanisms can be popped out and rotated</li></ul>",
                 "width": "fit-content",
-                "max_width": "normal",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
