@@ -1,11 +1,11 @@
 {% comment %}
-Custom robots.txt for KDAC – optimized for indexing important pages
-while keeping internal/system URLs out of Google.
+KDAC - Custom robots.txt
+Safe for Google Merchant Center, SEO, and prevents draft product errors.
 {% endcomment %}
 
 User-agent: *
 
-# --- Block internal/system areas
+# --- Block internal/system areas ---
 Disallow: /admin
 Disallow: /cart
 Disallow: /carts
@@ -22,7 +22,17 @@ Disallow: /cdn/wpm/*.js
 Disallow: /a/downloads/-/*
 Disallow: /apple-app-site-association
 
-# --- Allow main public sections (products MUST stay allowed for Merchant Center)
+# --- Prevent DRAFT and PREVIEW content from being crawled ---
+# (VERY IMPORTANT: This prevents Google from crawling draft products and causing errors)
+Disallow: /*?preview=*
+Disallow: /*?view=draft*
+Disallow: /*?*disable=*
+Disallow: /*?view=*
+Disallow: /*?*preview*
+Disallow: /products/*?preview=*
+Disallow: /collections/*?preview=*
+
+# --- Allow all real public content (required for Merchant Center) ---
 Allow: /collections/
 Allow: /products/
 Allow: /blogs/
@@ -30,17 +40,13 @@ Allow: /pages/
 Allow: /policies/
 Allow: /policies/contact-information
 
-# --- Block only filtered/sorted collection URLs (safe for SEO & Merchant Center)
+# --- Block filtered/sorted URLs (duplicate pages, safe for SEO) ---
 Disallow: /collections/*?sort_by=
 Disallow: /collections/*?filter=
 
-# IMPORTANT:
-# Do NOT block ?variant= or product handles with -1 here.
-# Google Merchant Center needs to be able to crawl all product and variant URLs.
-
-# --- Optional: block obvious draft URLs (not used in feeds)
+# --- Optional: block draft folders (Shopify doesn't use them, but safe)
 Disallow: /collections/drafts
 Disallow: /products/drafts
 
-# --- Sitemap
+# --- Sitemap ---
 Sitemap: https://kdac.com.au/sitemap.xml
