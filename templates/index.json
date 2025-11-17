@@ -1137,7 +1137,7 @@
               "settings": {
                 "text": "<p>The <strong>Domus Infinity 6-in-1 Premium Slimline Bathroom Heater</strong> is a modern <strong>all-in-one ceiling bathroom heater with LED light and exhaust fan</strong> that combines powerful heating, bright LED lighting, effective ventilation, and year-round comfort in one sleek design. Built for <strong>energy efficiency</strong> and everyday convenience, it quickly warms up your bathroom in winter, provides refreshing airflow in summer, and keeps the space well-lit and ventilated all year long. Its <strong>slimline profile</strong> blends seamlessly with any bathroom style, while the premium build ensures durability and reliable performance. Perfect for homeowners who want a <strong>space-saving, multi-function bathroom ceiling heater</strong> that delivers comfort, style, and efficiency in a single solution.</p>",
                 "width": "fit-content",
-                "max_width": "normal",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
