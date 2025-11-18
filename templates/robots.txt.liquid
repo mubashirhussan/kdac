@@ -3,6 +3,15 @@ KDAC - Custom robots.txt
 Safe for Google Merchant Center, SEO, and prevents draft product errors.
 {% endcomment %}
 
+# --- Client-requested overrides ---
+User-agent: Googlebot
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow:
+
+
+# --- Default all-user settings ---
 User-agent: *
 
 # --- Block internal/system areas ---
@@ -23,7 +32,6 @@ Disallow: /a/downloads/-/*
 Disallow: /apple-app-site-association
 
 # --- Prevent DRAFT and PREVIEW content from being crawled ---
-# (VERY IMPORTANT: This prevents Google from crawling draft products and causing errors)
 Disallow: /*?preview=*
 Disallow: /*?view=draft*
 Disallow: /*?*disable=*
@@ -44,7 +52,7 @@ Allow: /policies/contact-information
 Disallow: /collections/*?sort_by=
 Disallow: /collections/*?filter=
 
-# --- Optional: block draft folders (Shopify doesn't use them, but safe)
+# --- Optional: block draft folders ---
 Disallow: /collections/drafts
 Disallow: /products/drafts
 
