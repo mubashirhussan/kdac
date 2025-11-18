@@ -791,6 +791,7 @@
                 },
                 "judge_me_reviews_preview_badge_homepage_JdUQ9h": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {
                     "product": ""
                   }
@@ -1403,6 +1404,7 @@
                 },
                 "judge_me_reviews_preview_badge_homepage_W6XacY": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {
                     "product": ""
                   }
@@ -1675,6 +1677,7 @@
                 },
                 "judge_me_reviews_preview_badge_homepage_CNMPje": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {
                     "product": ""
                   }
@@ -1947,6 +1950,7 @@
                 },
                 "judge_me_reviews_preview_badge_homepage_AmeEC3": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {
                     "product": ""
                   }
@@ -2219,6 +2223,7 @@
                 },
                 "judge_me_reviews_preview_badge_homepage_7DJBHq": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {
                     "product": ""
                   }
