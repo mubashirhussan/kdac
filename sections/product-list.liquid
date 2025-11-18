@@ -29,8 +29,9 @@
     section
     section--{{ section.settings.section_width }}
     color-{{ section.settings.color_scheme }}
-    section-resource-list
-    spacing-style
+    container
+    {% comment %} section-resource-list
+    spacing-style {% endcomment %}
     gap-style
   "
   style="
@@ -40,7 +41,7 @@
     {{ styles }}
   "
 >
-  <div class="section-resource-list__header">
+  <div class=" section-resource-list__header">
     {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
   </div>
 
@@ -580,9 +581,20 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
+            },
+            "add-to-cart": {
+              "type": "product-card-add-to-cart",
+              "name": "Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              }
             }
           },
-          "block_order": ["product-card-gallery", "product_title", "price"]
+          "block_order": ["product-card-gallery", "product_title", "price", "add-to-cart"]
         }
       },
       "block_order": []
@@ -757,9 +769,20 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
+            },
+            "add-to-cart": {
+              "type": "product-card-add-to-cart",
+              "name": "Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              }
             }
           },
-          "block_order": ["product-card-gallery", "product_title", "price"]
+          "block_order": ["product-card-gallery", "product_title", "price", "add-to-cart"]
         }
       },
       "block_order": []
@@ -939,9 +962,20 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
+            },
+            "add-to-cart": {
+              "type": "product-card-add-to-cart",
+              "name": "Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              }
             }
           },
-          "block_order": ["product-card-gallery", "product_title", "price"]
+          "block_order": ["product-card-gallery", "product_title", "price", "add-to-cart"]
         }
       },
       "block_order": []
