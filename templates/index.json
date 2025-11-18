@@ -760,7 +760,7 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
+                "padding-inline-start": 10,
                 "padding-inline-end": 10
               },
               "blocks": {
@@ -840,12 +840,25 @@
                 "price_h6P4AF",
                 "swatches_k9YMgz"
               ]
+            },
+            "product_card_add_to_cart_78haLR": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_JgqDGj",
             "review_Jzgdp8",
-            "group_7VTJcC"
+            "group_7VTJcC",
+            "product_card_add_to_cart_78haLR"
           ]
         }
       },
