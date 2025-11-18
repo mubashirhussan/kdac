@@ -686,8 +686,8 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
-            "border": "solid",
+            "color_scheme": "scheme-1",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 30,
             "border_radius": 10,
@@ -760,7 +760,7 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 10,
+                "padding-inline-start": 0,
                 "padding-inline-end": 10
               },
               "blocks": {
@@ -1298,8 +1298,8 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
-            "border": "solid",
+            "color_scheme": "scheme-1",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 30,
             "border_radius": 10,
@@ -1372,8 +1372,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_gGb7Kr": {
@@ -1570,8 +1570,8 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
-            "border": "solid",
+            "color_scheme": "scheme-1",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 30,
             "border_radius": 10,
@@ -1644,8 +1644,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_RXf9Vd": {
@@ -1842,8 +1842,8 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
-            "border": "solid",
+            "color_scheme": "scheme-1",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 30,
             "border_radius": 10,
@@ -1916,8 +1916,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_RigWdk": {
@@ -2114,8 +2114,8 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-ac61d724-4123-4e2f-ac4d-828494d7b1ae",
-            "border": "solid",
+            "color_scheme": "scheme-1",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 30,
             "border_radius": 10,
@@ -2188,8 +2188,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_cprbTK": {
