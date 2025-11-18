@@ -807,7 +807,7 @@
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -1433,7 +1433,7 @@
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -1719,7 +1719,7 @@
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -2005,7 +2005,7 @@
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -2291,7 +2291,7 @@
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -2333,7 +2333,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 10,
                 "padding-inline-start": 10,
-                "padding-inline-end": 12
+                "padding-inline-end": 10
               },
               "blocks": {}
             }
