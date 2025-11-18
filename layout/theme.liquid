@@ -53,7 +53,34 @@
     <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_3.js" defer></script>
   </head>
 
+
+
+  {% if request.country %}
+  {% unless request.country.iso_code == 'AU' %}
+    <style>
+      body { display:none !important; }
+    </style>
+    <script>
+      window.location.href = "/pages/not-available";
+    </script>
+  {% endunless %}
+{% endif %}
+
+
+
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+
+{% if localization.country.iso_code != 'AU' %}
+  <script>
+    window.location.href = "/pages/not-available"; 
+  </script>
+{% endif %}
+
+
+
+
+
+
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
     <div id="header-group">

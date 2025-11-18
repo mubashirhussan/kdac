@@ -1,10 +1,20 @@
 {% comment %}
-Custom robots.txt for KDAC – optimized for indexing important pages and excluding drafts/404-like duplicates.
+KDAC - Custom robots.txt
+Safe for Google Merchant Center, SEO, and prevents draft product errors.
 {% endcomment %}
 
+# --- Client-requested overrides ---
+User-agent: Googlebot
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow:
+
+
+# --- Default all-user settings ---
 User-agent: *
 
-# --- Block internal/system areas
+# --- Block internal/system areas ---
 Disallow: /admin
 Disallow: /cart
 Disallow: /carts
@@ -21,7 +31,16 @@ Disallow: /cdn/wpm/*.js
 Disallow: /a/downloads/-/*
 Disallow: /apple-app-site-association
 
-# --- Allow main public sections
+# --- Prevent DRAFT and PREVIEW content from being crawled ---
+Disallow: /*?preview=*
+Disallow: /*?view=draft*
+Disallow: /*?*disable=*
+Disallow: /*?view=*
+Disallow: /*?*preview*
+Disallow: /products/*?preview=*
+Disallow: /collections/*?preview=*
+
+# --- Allow all real public content (required for Merchant Center) ---
 Allow: /collections/
 Allow: /products/
 Allow: /blogs/
@@ -29,17 +48,13 @@ Allow: /pages/
 Allow: /policies/
 Allow: /policies/contact-information
 
-# --- Block filtered/sorted/variant parameter URLs (querystring-aware)
-Disallow: /collections/*?*sort_by=*
-Disallow: /collections/*?*filter*=*
-Disallow: /*?*variant=*
+# --- Block filtered/sorted URLs (duplicate pages, safe for SEO) ---
+Disallow: /collections/*?sort_by=
+Disallow: /collections/*?filter=
 
-# --- Prevent crawling of “duplicate” handles and obvious drafts
-# (This makes GSC show them as Excluded → Blocked by robots.txt instead of 404 errors.)
-Disallow: /collections/*-1$
-Disallow: /products/*-1$
+# --- Optional: block draft folders ---
 Disallow: /collections/drafts
 Disallow: /products/drafts
 
-# --- Sitemap
+# --- Sitemap ---
 Sitemap: https://kdac.com.au/sitemap.xml
