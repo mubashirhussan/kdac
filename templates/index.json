@@ -847,9 +847,9 @@
               "settings": {
                 "button_style": "button",
                 "padding-block-start": 0,
-                "padding-block-end": 12,
-                "padding-inline-start": 12,
-                "padding-inline-end": 12
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {}
             }
@@ -1386,8 +1386,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_gGb7Kr": {
@@ -1466,12 +1466,25 @@
                 "price_cXYGxE",
                 "swatches_pmLiRN"
               ]
+            },
+            "product_card_add_to_cart_HG6zpX": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_aDhU4t",
             "review_TtwN6d",
-            "product_card_group_png8nR"
+            "product_card_group_png8nR",
+            "product_card_add_to_cart_HG6zpX"
           ]
         }
       },
@@ -1659,8 +1672,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_RXf9Vd": {
@@ -1739,12 +1752,25 @@
                 "price_JCDRHq",
                 "swatches_jkeChx"
               ]
+            },
+            "product_card_add_to_cart_WYcBQd": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_XtKfG7",
             "review_my8tXj",
-            "product_card_group_TKr6cU"
+            "product_card_group_TKr6cU",
+            "product_card_add_to_cart_WYcBQd"
           ]
         }
       },
@@ -1932,8 +1958,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_RigWdk": {
@@ -2012,12 +2038,25 @@
                 "price_axRRDa",
                 "swatches_XbCLaK"
               ]
+            },
+            "product_card_add_to_cart_UKiTeK": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_bfyc36",
             "review_iMbP4T",
-            "product_card_group_ALDhYE"
+            "product_card_group_ALDhYE",
+            "product_card_add_to_cart_UKiTeK"
           ]
         }
       },
@@ -2205,8 +2244,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_cprbTK": {
@@ -2285,16 +2324,29 @@
                 "price_4E6aLx",
                 "swatches_3j3L97"
               ]
+            },
+            "product_card_add_to_cart_mHVNib": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 12
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_zGkPcc",
             "review_w7MaVE",
-            "product_card_group_rGf3Y4"
+            "product_card_group_rGf3Y4",
+            "product_card_add_to_cart_mHVNib"
           ]
         }
       },
-      "name": "Electrical",
+      "name": "Security",
       "settings": {
         "collection": "security",
         "layout_type": "carousel",
