@@ -143,6 +143,10 @@
       {% if block_settings.padding-inline-end > 0 %}--zoom-out-padding-inline-end: min(var(--padding-xs), {{ block_settings.padding-inline-end | times: 0.7}}px);{% endif %}
       {% if block_settings.padding-block-start > 0 %}--zoom-out-padding-block-start: min(var(--padding-xs), {{ block_settings.padding-block-start | times: 0.7}}px);{% endif %}
       {% if block_settings.padding-block-end > 0 %}--zoom-out-padding-block-end: min(var(--padding-xs), {{ block_settings.padding-block-end | times: 0.7}}px);{% endif %}
+      border: 1px solid #eeeeed;
+      background-color: #f5f5f7;
+      border-radius: 8px;
+      overflow: hidden;
     "
   >
     {{ children }}
@@ -160,6 +164,17 @@
 
   .product-card__placeholder-image svg {
     height: 100%;
+  }
+
+  /* Ensure product card content is flex and add-to-cart button stays at bottom */
+  .product-card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-card__content .product-card-add-to-cart {
+    margin-top: auto;
   }
 
   @media screen and (max-width: 749px) {

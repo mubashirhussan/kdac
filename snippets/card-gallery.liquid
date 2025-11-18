@@ -259,6 +259,16 @@
     aspect-ratio: var(--gallery-aspect-ratio, var(--ratio));
   }
 
+  /* Ensure images have proper border radius at the top */
+  .product-grid__card .card-gallery {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+  }
+
+  .product-grid__card .card-gallery img {
+    border-radius: 0;
+  }
+
   .product-card-gallery__title-placeholder {
     padding: var(--padding-md);
     font-size: var(--font-size--2xl);

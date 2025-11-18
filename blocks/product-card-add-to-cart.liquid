@@ -1,0 +1,204 @@
+{%- doc -%}
+  Renders an "Add to cart" button specifically designed for product cards.
+  This block should be used within product cards to provide a quick add to cart functionality.
+  
+  @param {object} product - The product object (from closest.product)
+{%- enddoc -%}
+
+{% liquid
+  assign block_settings = block.settings
+  assign product = closest.product
+  
+  if product == blank
+    assign product = collections.all.products.first
+  endif
+
+  # Determine if product can be added to cart
+  assign variant = product.selected_or_first_available_variant
+  assign can_add_to_cart = false
+  assign button_text = 'products.product.sold_out' | t
+  
+  if variant != blank
+    assign inventory_quantity = variant.inventory_quantity
+    assign inventory_policy = variant.inventory_policy
+    assign inventory_managed = false
+    
+    if variant.inventory_management == 'shopify'
+      assign inventory_managed = true
+    endif
+    
+    if inventory_managed
+      if inventory_quantity > 0 or inventory_policy == 'continue'
+        assign can_add_to_cart = true
+        assign button_text = 'products.product.add_to_cart' | t
+      endif
+    else
+      assign can_add_to_cart = true
+      assign button_text = 'products.product.add_to_cart' | t
+    endif
+  endif
+%}
+
+<div
+  class="product-card-add-to-cart spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  {% if product != blank %}
+    <product-form-component
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}"
+      data-product-url="{{ product.url }}"
+      on:submit="/handleSubmit"
+    >
+      <div
+        class="visually-hidden"
+        aria-live="assertive"
+        role="status"
+        aria-atomic="true"
+        ref="liveRegion"
+      ></div>
+      
+      {%- form 'product', product, data-type: 'add-to-cart-form' -%}
+        <input
+          type="hidden"
+          name="id"
+          ref="variantId"
+          value="{{ variant.id }}"
+        >
+        
+        {% assign button_class = 'product-card-add-to-cart__button ' | append: block_settings.button_style %}
+        
+        {% render 'add-to-cart-button',
+          class: button_class,
+          can_add_to_cart: can_add_to_cart,
+          product: product,
+          add_to_cart_text: button_text
+        %}
+      {%- endform -%}
+    </product-form-component>
+  {% else %}
+    <button
+      type="button"
+      class="button product-card-add-to-cart__button"
+      disabled
+    >
+      {{ 'products.product.add_to_cart' | t }}
+    </button>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .product-card-add-to-cart {
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .product-card-add-to-cart__button {
+    width: 100%;
+    padding: var(--padding-md) var(--padding-lg);
+    font-size: var(--font-size--sm);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .product-card-add-to-cart__button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-card-add-to-cart__button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-card-add-to-cart__button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Responsive styling */
+  @media screen and (max-width: 749px) {
+    .product-card-add-to-cart__button {
+      font-size: var(--font-size--xs);
+      padding: var(--padding-sm) var(--padding-md);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Add to Cart Button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left Padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right Padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Card Add to Cart",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+
