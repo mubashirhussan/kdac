@@ -13,6 +13,15 @@
     assign product = collections.all.products.first
   endif
 
+  # Check if product has "request-quote" tag
+  assign is_request_quote = false
+  for tag in product.tags
+    if tag == 'request-quote'
+      assign is_request_quote = true
+      break
+    endif
+  endfor
+
   # Determine if product can be added to cart
   assign variant = product.selected_or_first_available_variant
   assign can_add_to_cart = false
@@ -45,38 +54,49 @@
   {{ block.shopify_attributes }}
 >
   {% if product != blank %}
-    <product-form-component
-      data-section-id="{{ section.id }}"
-      data-product-id="{{ product.id }}"
-      data-product-url="{{ product.url }}"
-      on:submit="/handleSubmit"
-    >
-      <div
-        class="visually-hidden"
-        aria-live="assertive"
-        role="status"
-        aria-atomic="true"
-        ref="liveRegion"
-      ></div>
-      
-      {%- form 'product', product, data-type: 'add-to-cart-form' -%}
-        <input
-          type="hidden"
-          name="id"
-          ref="variantId"
-          value="{{ variant.id }}"
-        >
+    {% if is_request_quote %}
+      {%- comment -%} Show "Request Quote" button that links to product page {%- endcomment -%}
+      <a
+        href="{{ product.url }}"
+        class="product-card-add-to-cart__button button request-quote-button"
+      >
+        Request Quote
+      </a>
+    {% else %}
+      {%- comment -%} Show normal add to cart functionality {%- endcomment -%}
+      <product-form-component
+        data-section-id="{{ section.id }}"
+        data-product-id="{{ product.id }}"
+        data-product-url="{{ product.url }}"
+        on:submit="/handleSubmit"
+      >
+        <div
+          class="visually-hidden"
+          aria-live="assertive"
+          role="status"
+          aria-atomic="true"
+          ref="liveRegion"
+        ></div>
         
-        {% assign button_class = 'product-card-add-to-cart__button ' | append: block_settings.button_style %}
-        
-        {% render 'add-to-cart-button',
-          class: button_class,
-          can_add_to_cart: can_add_to_cart,
-          product: product,
-          add_to_cart_text: button_text
-        %}
-      {%- endform -%}
-    </product-form-component>
+        {%- form 'product', product, data-type: 'add-to-cart-form' -%}
+          <input
+            type="hidden"
+            name="id"
+            ref="variantId"
+            value="{{ variant.id }}"
+          >
+          
+          {% assign button_class = 'product-card-add-to-cart__button ' | append: block_settings.button_style %}
+          
+          {% render 'add-to-cart-button',
+            class: button_class,
+            can_add_to_cart: can_add_to_cart,
+            product: product,
+            add_to_cart_text: button_text
+          %}
+        {%- endform -%}
+      </product-form-component>
+    {% endif %}
   {% else %}
     <button
       type="button"
@@ -105,6 +125,9 @@
     border-radius: 10px;
     color: white;
     border: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
   }
   
   .product-card-add-to-cart__button:hover:not(:disabled) {
@@ -120,6 +143,18 @@
   .product-card-add-to-cart__button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  /* Request Quote button styling */
+  .request-quote-button {
+    background-color: #0020C2;
+    color: white;
+  }
+
+  .request-quote-button:hover {
+    background-color: #001A99;
+    color: white;
+    text-decoration: none;
   }
 
   /* Responsive styling */
