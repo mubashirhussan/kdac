@@ -77,8 +77,16 @@ select {
   position: relative;
   transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
-  will-change: transform, box-shadow;
   z-index: var(--layer-flat);
+}
+
+/* Only enable will-change on hover to prevent unnecessary repaints */
+.product-card:hover,
+.collection-card:hover,
+.resource-card:hover,
+.predictive-search-results__card--product:hover,
+.predictive-search-results__card:hover {
+  will-change: transform, box-shadow;
 }
 
 .product-card__link {
