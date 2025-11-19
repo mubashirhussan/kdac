@@ -833,11 +833,24 @@
                 "price_AUnDAd",
                 "swatches_yPCmba"
               ]
+            },
+            "product_card_add_to_cart_bpiYGq": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
-            "group_zGryyP"
+            "group_zGryyP",
+            "product_card_add_to_cart_bpiYGq"
           ]
         }
       },
