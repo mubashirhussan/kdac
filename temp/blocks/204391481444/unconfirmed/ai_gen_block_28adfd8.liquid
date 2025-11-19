@@ -1,6 +1,944 @@
+{% doc %}
+  @prompt
+    Create a brand logo slider section that works on both mobile and desktop. The section should include a customizable title at the top and allow merchants to add unlimited brand logo blocks. Each block should have an image field for the brand logo and a URL field for the link. The logos should display in a slider/carousel format on both mobile and desktop devices with smooth navigation controls., increase this to add 25 logos instead of 20
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-brand-slider-{{ ai_gen_id }} {
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-brand-slider__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-brand-slider__header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.title_alignment }};
+    margin-bottom: 40px;
+  }
+
+  .ai-brand-slider__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0;
+  }
+
+  .ai-brand-slider__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-brand-slider__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.logo_spacing }}px;
+    transition: transform 0.5s ease;
+  }
+
+  .ai-brand-slider__slide-{{ ai_gen_id }} {
+    flex: 0 0 auto;
+    width: {{ block.settings.logos_per_row_desktop }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: {{ block.settings.logo_background_color }};
+    border-radius: {{ block.settings.logo_border_radius }}px;
+  }
+
+  .ai-brand-slider__slide-{{ ai_gen_id }} a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-brand-slider__slide-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    max-height: {{ block.settings.logo_max_height }}px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-brand-slider__slide-{{ ai_gen_id }} a:hover img {
+    opacity: 0.7;
+  }
+
+  .ai-brand-slider__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.logo_max_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+
+  .ai-brand-slider__placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-brand-slider__controls-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .ai-brand-slider__button-{{ ai_gen_id }} {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: {{ block.settings.control_background_color }};
+    color: {{ block.settings.control_icon_color }};
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .ai-brand-slider__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.control_hover_background_color }};
+    color: {{ block.settings.control_hover_icon_color }};
+    transform: scale(1.1);
+  }
+
+  .ai-brand-slider__button-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-brand-slider__button-{{ ai_gen_id }}:disabled:hover {
+    transform: none;
+    background-color: {{ block.settings.control_background_color }};
+    color: {{ block.settings.control_icon_color }};
+  }
+
+  .ai-brand-slider__dots-{{ ai_gen_id }} {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ai-brand-slider__dot-{{ ai_gen_id }} {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: {{ block.settings.control_background_color }};
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .ai-brand-slider__dot-{{ ai_gen_id }}.active {
+    background-color: {{ block.settings.control_icon_color }};
+    width: 24px;
+    border-radius: 5px;
+  }
+
+  .ai-brand-slider__empty-state-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-brand-slider__slide-{{ ai_gen_id }} {
+      width: {{ block.settings.logos_per_row_mobile }}px;
+    }
+
+    .ai-brand-slider__title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.7);
+    }
+  }
+{% endstyle %}
+
+<brand-slider-{{ ai_gen_id }} class="ai-brand-slider-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-brand-slider__container-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <div class="ai-brand-slider__header-{{ ai_gen_id }}">
+        <h2 class="ai-brand-slider__title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+      </div>
+    {% endif %}
+
+    {% assign logo_count = 0 %}
+    {% for i in (1..25) %}
+      {% assign logo_key = 'logo_' | append: i %}
+      {% if block.settings[logo_key] != blank %}
+        {% assign logo_count = logo_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% if logo_count > 0 %}
+      <div class="ai-brand-slider__wrapper-{{ ai_gen_id }}">
+        <div class="ai-brand-slider__track-{{ ai_gen_id }}" data-track>
+          {% for i in (1..25) %}
+            {% assign logo_key = 'logo_' | append: i %}
+            {% assign link_key = 'link_' | append: i %}
+            {% assign logo = block.settings[logo_key] %}
+            {% assign link = block.settings[link_key] %}
+            
+            {% if logo != blank %}
+              <div class="ai-brand-slider__slide-{{ ai_gen_id }}">
+                {% if link != blank %}
+                  <a href="{{ link }}" aria-label="Visit brand website">
+                {% endif %}
+                  <img
+                    src="{{ logo | image_url: width: 400 }}"
+                    alt="{{ logo.alt | escape }}"
+                    loading="lazy"
+                    width="{{ logo.width }}"
+                    height="{{ logo.height }}"
+                  >
+                {% if link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if block.settings.show_controls %}
+        <div class="ai-brand-slider__controls-{{ ai_gen_id }}">
+          <button
+            class="ai-brand-slider__button-{{ ai_gen_id }}"
+            data-prev
+            aria-label="Previous slide"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="ai-brand-slider__dots-{{ ai_gen_id }}" data-dots></div>
+
+          <button
+            class="ai-brand-slider__button-{{ ai_gen_id }}"
+            data-next
+            aria-label="Next slide"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="ai-brand-slider__empty-state-{{ ai_gen_id }}">
+        Add brand logos to display your partners and brands
+      </div>
+    {% endif %}
+  </div>
+</brand-slider-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BrandSlider{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentIndex = 0;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('[data-track]');
+        this.prevButton = this.querySelector('[data-prev]');
+        this.nextButton = this.querySelector('[data-next]');
+        this.dotsContainer = this.querySelector('[data-dots]');
+        
+        if (!this.track) return;
+
+        this.slides = Array.from(this.track.children);
+        this.totalSlides = this.slides.length;
+        
+        this.slidesPerView = this.getSlidesPerView();
+        this.totalPages = Math.ceil(this.totalSlides / this.slidesPerView);
+
+        if (this.totalPages <= 1) {
+          if (this.prevButton) this.prevButton.style.display = 'none';
+          if (this.nextButton) this.nextButton.style.display = 'none';
+          if (this.dotsContainer) this.dotsContainer.style.display = 'none';
+          return;
+        }
+
+        this.setupEventListeners();
+        this.createDots();
+        this.updateSlider();
+        
+        {% if block.settings.autoplay %}
+          this.startAutoplay();
+        {% endif %}
+
+        window.addEventListener('resize', () => {
+          this.slidesPerView = this.getSlidesPerView();
+          this.totalPages = Math.ceil(this.totalSlides / this.slidesPerView);
+          this.currentIndex = Math.min(this.currentIndex, this.totalPages - 1);
+          this.createDots();
+          this.updateSlider();
+        });
+      }
+
+      getSlidesPerView() {
+        const isMobile = window.innerWidth < 750;
+        const slideWidth = isMobile ? {{ block.settings.logos_per_row_mobile }} : {{ block.settings.logos_per_row_desktop }};
+        const gap = {{ block.settings.logo_spacing }};
+        const containerWidth = this.track.parentElement.offsetWidth;
+        return Math.floor(containerWidth / (slideWidth + gap));
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => {
+            this.goToPrevious();
+            this.resetAutoplay();
+          });
+        }
+
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => {
+            this.goToNext();
+            this.resetAutoplay();
+          });
+        }
+      }
+
+      createDots() {
+        if (!this.dotsContainer) return;
+        
+        this.dotsContainer.innerHTML = '';
+        
+        for (let i = 0; i < this.totalPages; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'ai-brand-slider__dot-{{ ai_gen_id }}';
+          dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          dot.addEventListener('click', () => {
+            this.goToSlide(i);
+            this.resetAutoplay();
+          });
+          this.dotsContainer.appendChild(dot);
+        }
+      }
+
+      updateSlider() {
+        const slideWidth = this.slides[0].offsetWidth;
+        const gap = {{ block.settings.logo_spacing }};
+        const offset = -(this.currentIndex * this.slidesPerView * (slideWidth + gap));
+        
+        this.track.style.transform = `translateX(${offset}px)`;
+
+        if (this.prevButton) {
+          this.prevButton.disabled = this.currentIndex === 0;
+        }
+
+        if (this.nextButton) {
+          this.nextButton.disabled = this.currentIndex >= this.totalPages - 1;
+        }
+
+        if (this.dotsContainer) {
+          const dots = this.dotsContainer.querySelectorAll('.ai-brand-slider__dot-{{ ai_gen_id }}');
+          dots.forEach((dot, index) => {
+            if (index === this.currentIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+      }
+
+      goToPrevious() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+          this.updateSlider();
+        }
+      }
+
+      goToNext() {
+        if (this.currentIndex < this.totalPages - 1) {
+          this.currentIndex++;
+          this.updateSlider();
+        }
+      }
+
+      goToSlide(index) {
+        this.currentIndex = index;
+        this.updateSlider();
+      }
+
+      startAutoplay() {
+        this.autoplayInterval = setInterval(() => {
+          if (this.currentIndex >= this.totalPages - 1) {
+            this.currentIndex = 0;
+          } else {
+            this.currentIndex++;
+          }
+          this.updateSlider();
+        }, {{ block.settings.autoplay_speed }} * 1000);
+      }
+
+      resetAutoplay() {
+        {% if block.settings.autoplay %}
+          if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.startAutoplay();
+          }
+        {% endif %}
+      }
+
+      disconnectedCallback() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+    }
+
+    customElements.define('brand-slider-{{ ai_gen_id }}', BrandSlider{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Brand logo slider",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Trusted Brands"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "Title alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "logos_per_row_desktop",
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width on desktop",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "logos_per_row_mobile",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width on mobile",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "logo_spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between logos",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "logo_max_height",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo max height",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Logo style"
+    },
+    {
+      "type": "color",
+      "id": "logo_background_color",
+      "label": "Logo background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "logo_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show navigation controls",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "control_background_color",
+      "label": "Control background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "control_hover_background_color",
+      "label": "Control hover background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "control_icon_color",
+      "label": "Control icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "control_hover_icon_color",
+      "label": "Control hover icon color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "header",
+      "content": "Logo 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_1",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_1",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_2",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_2",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_3",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_3",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_4",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_4",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_5",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_5",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_6",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_6",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_7",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_7",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_8",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_8",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_9",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_9",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_10",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_10",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_11",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_11",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 12"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_12",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_12",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 13"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_13",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_13",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 14"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_14",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_14",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 15"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_15",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_15",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 16"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_16",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_16",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 17"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_17",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_17",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 18"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_18",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_18",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 19"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_19",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_19",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 20"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_20",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_20",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 21"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_21",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_21",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 22"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_22",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_22",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 23"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_23",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_23",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 24"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_24",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_24",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo 25"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_25",
+      "label": "Logo image"
+    },
+    {
+      "type": "url",
+      "id": "link_25",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand logo slider"
+    }
+  ]
+}
 {% endschema %}
