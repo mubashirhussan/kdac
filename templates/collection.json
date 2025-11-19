@@ -166,7 +166,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -190,8 +190,8 @@
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_3QjUff": {
@@ -233,7 +233,7 @@
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
-                    "color": "var(--color-foreground)",
+                    "color": "var(--color-foreground-heading)",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -261,11 +261,24 @@
                 "price",
                 "swatches_xWhL7M"
               ]
+            },
+            "product_card_add_to_cart_Q6arV8": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "card-gallery",
-            "group"
+            "group",
+            "product_card_add_to_cart_Q6arV8"
           ]
         }
       },
