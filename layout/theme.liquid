@@ -55,26 +55,7 @@
 
 
 
-  {% if request.country %}
-  {% unless request.country.iso_code == 'AU' %}
-    <style>
-      body { display:none !important; }
-    </style>
-    <script>
-      window.location.href = "/pages/not-available";
-    </script>
-  {% endunless %}
-{% endif %}
-
-
-
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
-
-{% if localization.country.iso_code != 'AU' %}
-  <script>
-    window.location.href = "/pages/not-available"; 
-  </script>
-{% endif %}
 
 
 
