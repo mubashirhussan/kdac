@@ -2368,249 +2368,377 @@
         "padding-block-end": 96
       }
     },
-    "brands_grid_pdxq6W": {
-      "type": "brands-grid",
+    // "brands_grid_pdxq6W": {
+    //   "type": "brands-grid",
+    //   "blocks": {
+    //     "brand_8rK7A6": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1140.png",
+    //         "brand_name": "Berdis",
+    //         "brand_link": "https://kdac.com.au/collections/berdis"
+    //       }
+    //     },
+    //     "brand_X7ePCK": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1116.jpg",
+    //         "brand_name": "Blauberg",
+    //         "brand_link": "https://kdac.com.au/collections/blauberg"
+    //       }
+    //     },
+    //     "brand_mPjHhz": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1117.png",
+    //         "brand_name": "Clipsal",
+    //         "brand_link": "https://kdac.com.au/collections/clipsal"
+    //       }
+    //     },
+    //     "brand_ckVBYX": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1124.jpg",
+    //         "brand_name": "Crown",
+    //         "brand_link": "https://kdac.com.au/collections/crown"
+    //       }
+    //     },
+    //     "brand_3zVkkF": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1122.webp",
+    //         "brand_name": "Domus Lighting",
+    //         "brand_link": "https://kdac.com.au/collections/domus-lighting"
+    //       }
+    //     },
+    //     "brand_AYUkBe": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1118.png",
+    //         "brand_name": "Electra Cables",
+    //         "brand_link": "https://kdac.com.au/collections/electra-cables"
+    //       }
+    //     },
+    //     "brand_PRVb7F": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1156.png",
+    //         "brand_name": "Emerald",
+    //         "brand_link": "https://kdac.com.au/collections/emerald"
+    //       }
+    //     },
+    //     "brand_XfiTEi": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/1ccc73a0ba54ba75a1b14067d47e3c46.png",
+    //         "brand_name": "Hikvision",
+    //         "brand_link": "https://kdac.com.au/collections/hikvision"
+    //       }
+    //     },
+    //     "brand_VbEHTU": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/white-Photoroom-Photoroom_f91cd40c-e33e-48b1-9360-6e1a89eb7d92.png",
+    //         "brand_name": "KDAC",
+    //         "brand_link": "https://kdac.com.au/collections/kdac"
+    //       }
+    //     },
+    //     "brand_zNELje": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1132.jpg",
+    //         "brand_name": "Klein Tools",
+    //         "brand_link": "https://kdac.com.au/collections/klein-tools"
+    //       }
+    //     },
+    //     "brand_zPxTYY": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1158.jpg",
+    //         "brand_name": "KW",
+    //         "brand_link": "https://kdac.com.au/collections/kw"
+    //       }
+    //     },
+    //     "brand_FKgjic": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1133.png",
+    //         "brand_name": "Lexem",
+    //         "brand_link": "https://kdac.com.au/collections/lexem"
+    //       }
+    //     },
+    //     "brand_CTtYDV": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1119.png",
+    //         "brand_name": "Martec",
+    //         "brand_link": "https://kdac.com.au/collections/martec"
+    //       }
+    //     },
+    //     "brand_fb6T3K": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/007f321ece29fd2447fe14583ddebfc9.png",
+    //         "brand_name": "Mitsubishi Electric",
+    //         "brand_link": "https://kdac.com.au/collections/mitsubishi-electric"
+    //       }
+    //     },
+    //     "brand_X77YyU": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1138.png",
+    //         "brand_name": "Mitsubishi Heavy Industries",
+    //         "brand_link": "https://kdac.com.au/collections/mitsubishi-heavy-industries"
+    //       }
+    //     },
+    //     "brand_EKVLHQ": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1159.jpg",
+    //         "brand_name": "NLS",
+    //         "brand_link": "https://kdac.com.au/collections/nls"
+    //       }
+    //     },
+    //     "brand_xxcDkr": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1160.jpg",
+    //         "brand_name": "Omada",
+    //         "brand_link": "https://kdac.com.au/collections/omada"
+    //       }
+    //     },
+    //     "brand_hm3yUd": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1162.gif",
+    //         "brand_name": "PHL",
+    //         "brand_link": "https://kdac.com.au/collections/phl"
+    //       }
+    //     },
+    //     "brand_qkUTRL": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1121.png",
+    //         "brand_name": "Polyaire",
+    //         "brand_link": "https://kdac.com.au/collections/polyaire"
+    //       }
+    //     },
+    //     "brand_qraQyN": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1128.jpg",
+    //         "brand_name": "QZAO",
+    //         "brand_link": "https://kdac.com.au/collections/qzao"
+    //       }
+    //     },
+    //     "brand_3TLEMU": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/55d50257a201986cdbb4d0000c503eb5.png",
+    //         "brand_name": "Samsung",
+    //         "brand_link": "https://kdac.com.au/collections/samsung"
+    //       }
+    //     },
+    //     "brand_ei6eXQ": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1139.png",
+    //         "brand_name": "TCL",
+    //         "brand_link": "https://kdac.com.au/collections/tcl"
+    //       }
+    //     },
+    //     "brand_N7tz8w": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1130_10cefc06-40ae-4cdd-9bf2-5e8fad47e62c.png",
+    //         "brand_name": "Tesla",
+    //         "brand_link": "https://kdac.com.au/collections/tesla"
+    //       }
+    //     },
+    //     "brand_Fd8rzq": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1126.webp",
+    //         "brand_name": "Tradelike",
+    //         "brand_link": "https://kdac.com.au/collections/tradelike"
+    //       }
+    //     },
+    //     "brand_XNjzFJ": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_logo": "shopify://shop_images/IMG_1145.jpg",
+    //         "brand_name": "Ventair",
+    //         "brand_link": "https://kdac.com.au/collections/ventair"
+    //       }
+    //     },
+    //     "brand_jb3xda": {
+    //       "type": "brand",
+    //       "settings": {
+    //         "brand_name": "",
+    //         "brand_link": ""
+    //       }
+    //     }
+    //   },
+    //   "block_order": [
+    //     "brand_8rK7A6",
+    //     "brand_X7ePCK",
+    //     "brand_mPjHhz",
+    //     "brand_ckVBYX",
+    //     "brand_3zVkkF",
+    //     "brand_AYUkBe",
+    //     "brand_PRVb7F",
+    //     "brand_XfiTEi",
+    //     "brand_VbEHTU",
+    //     "brand_zNELje",
+    //     "brand_zPxTYY",
+    //     "brand_FKgjic",
+    //     "brand_CTtYDV",
+    //     "brand_fb6T3K",
+    //     "brand_X77YyU",
+    //     "brand_EKVLHQ",
+    //     "brand_xxcDkr",
+    //     "brand_hm3yUd",
+    //     "brand_qkUTRL",
+    //     "brand_qraQyN",
+    //     "brand_3TLEMU",
+    //     "brand_ei6eXQ",
+    //     "brand_N7tz8w",
+    //     "brand_Fd8rzq",
+    //     "brand_XNjzFJ",
+    //     "brand_jb3xda"
+    //   ],
+    //   "name": "Our Brands Grid",
+    //   "settings": {
+    //     "title": "Our Brands"
+    //   }
+    // },
+    "1763589338fc476312": {
+      "type": "_blocks",
       "blocks": {
-        "brand_8rK7A6": {
-          "type": "brand",
+        "ai_gen_block_97bb0ff_WRyg7e": {
+          "type": "ai_gen_block_97bb0ff",
           "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1140.png",
-            "brand_name": "Berdis",
-            "brand_link": "https://kdac.com.au/collections/berdis"
-          }
-        },
-        "brand_X7ePCK": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1116.jpg",
-            "brand_name": "Blauberg",
-            "brand_link": "https://kdac.com.au/collections/blauberg"
-          }
-        },
-        "brand_mPjHhz": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1117.png",
-            "brand_name": "Clipsal",
-            "brand_link": "https://kdac.com.au/collections/clipsal"
-          }
-        },
-        "brand_ckVBYX": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1124.jpg",
-            "brand_name": "Crown",
-            "brand_link": "https://kdac.com.au/collections/crown"
-          }
-        },
-        "brand_3zVkkF": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1122.webp",
-            "brand_name": "Domus Lighting",
-            "brand_link": "https://kdac.com.au/collections/domus-lighting"
-          }
-        },
-        "brand_AYUkBe": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1118.png",
-            "brand_name": "Electra Cables",
-            "brand_link": "https://kdac.com.au/collections/electra-cables"
-          }
-        },
-        "brand_PRVb7F": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1156.png",
-            "brand_name": "Emerald",
-            "brand_link": "https://kdac.com.au/collections/emerald"
-          }
-        },
-        "brand_XfiTEi": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/1ccc73a0ba54ba75a1b14067d47e3c46.png",
-            "brand_name": "Hikvision",
-            "brand_link": "https://kdac.com.au/collections/hikvision"
-          }
-        },
-        "brand_VbEHTU": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/white-Photoroom-Photoroom_f91cd40c-e33e-48b1-9360-6e1a89eb7d92.png",
-            "brand_name": "KDAC",
-            "brand_link": "https://kdac.com.au/collections/kdac"
-          }
-        },
-        "brand_zNELje": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1132.jpg",
-            "brand_name": "Klein Tools",
-            "brand_link": "https://kdac.com.au/collections/klein-tools"
-          }
-        },
-        "brand_zPxTYY": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1158.jpg",
-            "brand_name": "KW",
-            "brand_link": "https://kdac.com.au/collections/kw"
-          }
-        },
-        "brand_FKgjic": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1133.png",
-            "brand_name": "Lexem",
-            "brand_link": "https://kdac.com.au/collections/lexem"
-          }
-        },
-        "brand_CTtYDV": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1119.png",
-            "brand_name": "Martec",
-            "brand_link": "https://kdac.com.au/collections/martec"
-          }
-        },
-        "brand_fb6T3K": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/007f321ece29fd2447fe14583ddebfc9.png",
-            "brand_name": "Mitsubishi Electric",
-            "brand_link": "https://kdac.com.au/collections/mitsubishi-electric"
-          }
-        },
-        "brand_X77YyU": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1138.png",
-            "brand_name": "Mitsubishi Heavy Industries",
-            "brand_link": "https://kdac.com.au/collections/mitsubishi-heavy-industries"
-          }
-        },
-        "brand_EKVLHQ": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1159.jpg",
-            "brand_name": "NLS",
-            "brand_link": "https://kdac.com.au/collections/nls"
-          }
-        },
-        "brand_xxcDkr": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1160.jpg",
-            "brand_name": "Omada",
-            "brand_link": "https://kdac.com.au/collections/omada"
-          }
-        },
-        "brand_hm3yUd": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1162.gif",
-            "brand_name": "PHL",
-            "brand_link": "https://kdac.com.au/collections/phl"
-          }
-        },
-        "brand_qkUTRL": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1121.png",
-            "brand_name": "Polyaire",
-            "brand_link": "https://kdac.com.au/collections/polyaire"
-          }
-        },
-        "brand_qraQyN": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1128.jpg",
-            "brand_name": "QZAO",
-            "brand_link": "https://kdac.com.au/collections/qzao"
-          }
-        },
-        "brand_3TLEMU": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/55d50257a201986cdbb4d0000c503eb5.png",
-            "brand_name": "Samsung",
-            "brand_link": "https://kdac.com.au/collections/samsung"
-          }
-        },
-        "brand_ei6eXQ": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1139.png",
-            "brand_name": "TCL",
-            "brand_link": "https://kdac.com.au/collections/tcl"
-          }
-        },
-        "brand_N7tz8w": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1130_10cefc06-40ae-4cdd-9bf2-5e8fad47e62c.png",
-            "brand_name": "Tesla",
-            "brand_link": "https://kdac.com.au/collections/tesla"
-          }
-        },
-        "brand_Fd8rzq": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1126.webp",
-            "brand_name": "Tradelike",
-            "brand_link": "https://kdac.com.au/collections/tradelike"
-          }
-        },
-        "brand_XNjzFJ": {
-          "type": "brand",
-          "settings": {
-            "brand_logo": "shopify://shop_images/IMG_1145.jpg",
-            "brand_name": "Ventair",
-            "brand_link": "https://kdac.com.au/collections/ventair"
-          }
-        },
-        "brand_jb3xda": {
-          "type": "brand",
-          "settings": {
-            "brand_name": "",
-            "brand_link": ""
-          }
+            "section_title": "Our Brands",
+            "title_size": 32,
+            "title_color": "#000000",
+            "scroll_duration": 50,
+            "logo_width": 150,
+            "logo_height": 100,
+            "logo_spacing": 30,
+            "logo_background": "#f5f5f5",
+            "logo_border_radius": 8,
+            "logo_title_size": 14,
+            "logo_title_color": "#000000",
+            "logo_1": "shopify://shop_images/IMG_1140.png",
+            "logo_url_1": "shopify://collections/berdis",
+            "logo_title_1": "Berdis",
+            "logo_2": "shopify://shop_images/IMG_1116.jpg",
+            "logo_url_2": "https://kdac.com.au/collections/blauberg",
+            "logo_title_2": "Blauberg",
+            "logo_3": "shopify://shop_images/IMG_1117.png",
+            "logo_url_3": "shopify://collections/clipsal",
+            "logo_title_3": "Clipsal",
+            "logo_4": "shopify://shop_images/IMG_1121.png",
+            "logo_url_4": "shopify://collections/polyaire",
+            "logo_title_4": "Polyaire",
+            "logo_5": "shopify://shop_images/IMG_1124.jpg",
+            "logo_url_5": "shopify://collections/crown",
+            "logo_title_5": "Crown",
+            "logo_6": "shopify://shop_images/IMG_1122.webp",
+            "logo_url_6": "shopify://collections/domus-lighting",
+            "logo_title_6": "Domus Lighting",
+            "logo_7": "shopify://shop_images/IMG_1118.png",
+            "logo_url_7": "shopify://collections/electra-cables",
+            "logo_title_7": "Electra Cables",
+            "logo_8": "shopify://shop_images/IMG_1156.png",
+            "logo_url_8": "shopify://collections/emerald",
+            "logo_title_8": "Emerald",
+            "logo_9": "shopify://shop_images/1ccc73a0ba54ba75a1b14067d47e3c46.png",
+            "logo_url_9": "shopify://collections/hikvision",
+            "logo_title_9": "Hikvision",
+            "logo_10": "shopify://shop_images/white-Photoroom-Photoroom_f91cd40c-e33e-48b1-9360-6e1a89eb7d92.png",
+            "logo_url_10": "shopify://collections/kdac",
+            "logo_title_10": "KDAC",
+            "logo_11": "shopify://shop_images/IMG_1132.jpg",
+            "logo_url_11": "shopify://collections/klein-tools",
+            "logo_title_11": "Klein Tools",
+            "logo_12": "shopify://shop_images/IMG_1158.jpg",
+            "logo_url_12": "shopify://collections/kw",
+            "logo_title_12": "KW",
+            "logo_13": "shopify://shop_images/IMG_1133.png",
+            "logo_url_13": "https://kdac.com.au/collections/lexem",
+            "logo_title_13": "Lexem",
+            "logo_14": "shopify://shop_images/IMG_1119.png",
+            "logo_url_14": "shopify://collections/martec",
+            "logo_title_14": "Martec",
+            "logo_15": "shopify://shop_images/007f321ece29fd2447fe14583ddebfc9.png",
+            "logo_url_15": "https://kdac.com.au/collections/mitsubishi-electric",
+            "logo_title_15": "Mitsubishi Electric",
+            "logo_16": "shopify://shop_images/IMG_1138.png",
+            "logo_url_16": "shopify://collections/mitsubishi-heavy-industries",
+            "logo_title_16": "Mitsubishi Heavy Industries",
+            "logo_17": "shopify://shop_images/IMG_1159.jpg",
+            "logo_url_17": "shopify://collections/nls",
+            "logo_title_17": "NLS",
+            "logo_18": "shopify://shop_images/IMG_1160.jpg",
+            "logo_url_18": "https://kdac.com.au/collections/omada",
+            "logo_title_18": "Omada",
+            "logo_19": "shopify://shop_images/IMG_1162.gif",
+            "logo_url_19": "shopify://collections/phl",
+            "logo_title_19": "PHL",
+            "logo_20": "shopify://shop_images/IMG_1128.jpg",
+            "logo_url_20": "shopify://collections/qzao",
+            "logo_title_20": "QZAO",
+            "logo_21": "shopify://shop_images/55d50257a201986cdbb4d0000c503eb5.png",
+            "logo_url_21": "shopify://collections/samsung",
+            "logo_title_21": "Samsung",
+            "logo_22": "shopify://shop_images/IMG_1139.png",
+            "logo_url_22": "shopify://collections/tcl",
+            "logo_title_22": "TCL",
+            "logo_23": "shopify://shop_images/IMG_1130_10cefc06-40ae-4cdd-9bf2-5e8fad47e62c.png",
+            "logo_url_23": "https://kdac.com.au/collections/tesla",
+            "logo_title_23": "Tesla",
+            "logo_24": "shopify://shop_images/IMG_1126.webp",
+            "logo_url_24": "shopify://collections/tradelike",
+            "logo_title_24": "Tradelike",
+            "logo_25": "shopify://shop_images/IMG_1145.jpg",
+            "logo_url_25": "shopify://collections/ventair",
+            "logo_title_25": "Ventair"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "brand_8rK7A6",
-        "brand_X7ePCK",
-        "brand_mPjHhz",
-        "brand_ckVBYX",
-        "brand_3zVkkF",
-        "brand_AYUkBe",
-        "brand_PRVb7F",
-        "brand_XfiTEi",
-        "brand_VbEHTU",
-        "brand_zNELje",
-        "brand_zPxTYY",
-        "brand_FKgjic",
-        "brand_CTtYDV",
-        "brand_fb6T3K",
-        "brand_X77YyU",
-        "brand_EKVLHQ",
-        "brand_xxcDkr",
-        "brand_hm3yUd",
-        "brand_qkUTRL",
-        "brand_qraQyN",
-        "brand_3TLEMU",
-        "brand_ei6eXQ",
-        "brand_N7tz8w",
-        "brand_Fd8rzq",
-        "brand_XNjzFJ",
-        "brand_jb3xda"
+        "ai_gen_block_97bb0ff_WRyg7e"
       ],
-      "name": "Our Brands Grid",
+      "name": "Our Brands",
       "settings": {
-        "title": "Our Brands"
-      }
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      },
     },
     "custom_liquid_fLH9By": {
       "type": "custom-liquid",
@@ -2927,7 +3055,7 @@
     "product_list_gtRDMe",
     "product_list_LBRRaL",
     "product_list_zGaND4",
-    "brands_grid_pdxq6W",
+    "1763589338fc476312",
     "custom_liquid_fLH9By",
     "section_iw4pAm"
   ]
