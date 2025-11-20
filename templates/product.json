@@ -739,7 +739,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -762,9 +762,9 @@
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 10
               },
               "blocks": {
                 "product_title_Dk8awd": {
@@ -774,9 +774,9 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -798,11 +798,11 @@
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
-                    "type_preset": "h6",
+                    "type_preset": "custom",
                     "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "alignment": "center",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -833,11 +833,24 @@
                 "price_AUnDAd",
                 "swatches_yPCmba"
               ]
+            },
+            "product_card_add_to_cart_bpiYGq": {
+              "type": "product-card-add-to-cart",
+              "name": "Product Card Add to Cart",
+              "settings": {
+                "button_style": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 10,
+                "padding-inline-start": 10,
+                "padding-inline-end": 12
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
-            "group_zGryyP"
+            "group_zGryyP",
+            "product_card_add_to_cart_bpiYGq"
           ]
         }
       },

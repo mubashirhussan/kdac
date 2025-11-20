@@ -435,20 +435,44 @@
     }
   }
 
+  /* Card-style layout for mega menu items with images */
   .mega-menu__link:has(.mega-menu__link-image) {
-    display: flex;
-    flex-direction: column;
-    padding-inline: 0;
-    padding-block: var(--padding-sm) 0;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: var(--padding-sm) !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 2px #e1e1e1 !important;
+    border: 1px solid #eeeeed !important;
+    transition: all 0.3s ease !important;
+    min-height: 80px !important;
+  }
+
+  .mega-menu__link:has(.mega-menu__link-image):hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px) !important;
   }
 
   .mega-menu__link-image {
-    width: 100%;
-    position: relative;
-    aspect-ratio: 16 / 9;
-    margin-bottom: var(--padding-sm);
-    object-fit: cover;
-    border-radius: var(--menu-image-border-radius);
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    position: relative !important;
+    aspect-ratio: 1 !important;
+    margin-left: var(--padding-sm) !important;
+    margin-bottom: 0 !important;
+    object-fit: cover !important;
+    border-radius: var(--menu-image-border-radius, 4px) !important;
+    order: 2 !important;
+  }
+
+  .mega-menu__link:has(.mega-menu__link-image) .mega-menu__link-title {
+    flex: 1 !important;
+    text-align: left !important;
+    order: 1 !important;
+    padding-right: var(--padding-sm) !important;
   }
 
   /* Fix alignment for collection image mode links without images */
@@ -458,34 +482,64 @@
     .mega-menu__column
     > div
     > .mega-menu__link:not(:has(.mega-menu__link-image)) {
-    display: flex;
-    flex-direction: column;
-    padding-inline: 0;
-    padding-block: var(--padding-sm) 0;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: var(--padding-sm) !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 8px !important;
+    border: 1px solid #eeeeed !important;
+    box-shadow: 0 2px 2px #e1e1e1 !important;
+    transition: all 0.3s ease !important;
+    min-height: 80px !important;
+  }
+
+  .mega-menu__grid:has(.mega-menu__link-image)
+    .mega-menu__column
+    > div
+    > .mega-menu__link:not(:has(.mega-menu__link-image)):hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px) !important;
   }
 
   .mega-menu__grid:has(.mega-menu__link-image)
     .mega-menu__column
     > div
     > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-    content: '';
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-bottom: var(--padding-sm);
-    background-color: var(--color-foreground-muted);
-    opacity: 0.1;
-    border-radius: var(--menu-image-border-radius);
+    content: '' !important;
+    display: block !important;
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    aspect-ratio: 1 !important;
+    margin-left: var(--padding-sm) !important;
+    margin-bottom: 0 !important;
+    background-color: var(--color-foreground-muted) !important;
+    opacity: 0.1 !important;
+    border-radius: var(--menu-image-border-radius, 4px) !important;
+    order: 2 !important;
+  }
+
+  .mega-menu__grid:has(.mega-menu__link-image)
+    .mega-menu__column
+    > div
+    > .mega-menu__link:not(:has(.mega-menu__link-image)) .mega-menu__link-title {
+    flex: 1 !important;
+    text-align: left !important;
+    order: 1 !important;
+    padding-right: var(--padding-sm) !important;
   }
 
   .mega-menu__grid {
-    display: grid;
-    grid-template-columns: repeat(var(--menu-columns-tablet), minmax(0, 1fr));
-    gap: var(--menu-vertical-gap) var(--menu-horizontal-gap);
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(var(--menu-columns-tablet), minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    width: 100% !important;
+    padding: var(--padding-md) !important;
 
     @media screen and (min-width: 990px) {
-      grid-template-columns: repeat(var(--menu-columns-desktop), minmax(0, 1fr));
+      grid-template-columns: repeat(var(--menu-columns-desktop), minmax(0, 1fr)) !important;
     }
   }
 
@@ -509,7 +563,7 @@
     grid-column: span 1;
 
     @media screen and (min-width: 990px) {
-      grid-column: span 2;
+      grid-column: span 1;
     }
   }
 

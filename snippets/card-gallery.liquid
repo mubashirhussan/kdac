@@ -269,6 +269,33 @@
     border-radius: 0;
   }
 
+  /* Fix image blinking on hover - add smooth transitions and prevent layout shifts */
+  .card-gallery slideshow-slide {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .card-gallery slideshow-slide img,
+  .card-gallery slideshow-slide video {
+    transition: opacity 0.3s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .card-gallery slideshow-slides {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Optimize will-change for product card images */
+  .product-card:hover .card-gallery slideshow-slide img {
+    will-change: opacity;
+  }
+
+  /* Ensure smooth image loading without flashing */
+  .card-gallery img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
   .product-card-gallery__title-placeholder {
     padding: var(--padding-md);
     font-size: var(--font-size--2xl);
