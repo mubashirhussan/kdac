@@ -51,7 +51,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
-            "type_preset": "h3",
+            "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "1.125rem",
             "line_height": "tight",
