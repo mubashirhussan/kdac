@@ -1,6 +1,24 @@
+{%- doc -%}
+  Renders a header menu for desktop navigation.
+
+  @param {string} [menu_style] - The menu style to use (text, collection_images, featured_products, featured_collections)
+  @param {object} [block] - The block that provides settings
+  @param {object} [section] - The section that provides settings
+
+  @example
+  {% render 'header-menu', menu_style: 'collection_images' %}
+{%- enddoc -%}
+
 {% liquid
   assign block_settings = block.settings
-  assign menu_content_type = block_settings.menu_style | default: 'text'
+  
+  # Use the menu_style parameter if passed, otherwise fall back to block settings
+  if menu_style != blank
+    assign menu_content_type = menu_style
+  else
+    assign menu_content_type = block_settings.menu_style_desktop | default: block_settings.menu_style | default: 'text'
+  endif
+  
   assign image_border_radius = block_settings.image_border_radius
   assign color_scheme_classes = ''
   assign color_scheme_setting_id = 'color_scheme_' | append: section.settings.menu_row
@@ -16,9 +34,9 @@
     assign color_scheme_classes = color_scheme_classes | append: ' color-scheme-matches-parent'
   endif
 
-  if block_settings.menu_style == 'featured_collections'
+  if menu_content_type == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
-  elsif block_settings.menu_style == 'featured_products'
+  elsif menu_content_type == 'featured_products'
     assign ratio = block_settings.featured_products_aspect_ratio
   endif
 %}
