@@ -68,6 +68,7 @@
       "blocks": {
         "easy_tabs_product_tabs_easytabs_block_product_widget_fpagmU": {
           "type": "shopify://apps/easy-tabs-product-tabs/blocks/easytabs-block-product-widget/118e2a90-d31f-4cdf-b5c9-747e2bddd19a",
+          "disabled": true,
           "settings": {
             "placement_selector": "",
             "multiple_widgets": false
@@ -739,7 +740,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -762,9 +763,9 @@
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
                 "padding-block-start": 0,
-                "padding-block-end": 10,
-                "padding-inline-start": 10,
-                "padding-inline-end": 10
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "product_title_Dk8awd": {
@@ -774,9 +775,9 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-heading--family)",
-                    "font_size": "0.875rem",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -798,11 +799,11 @@
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
-                    "type_preset": "custom",
+                    "type_preset": "h6",
                     "width": "100%",
-                    "alignment": "center",
-                    "font": "var(--font-heading--family)",
-                    "font_size": "1.125rem",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -833,24 +834,11 @@
                 "price_AUnDAd",
                 "swatches_yPCmba"
               ]
-            },
-            "product_card_add_to_cart_bpiYGq": {
-              "type": "product-card-add-to-cart",
-              "name": "Product Card Add to Cart",
-              "settings": {
-                "button_style": "button",
-                "padding-block-start": 0,
-                "padding-block-end": 10,
-                "padding-inline-start": 10,
-                "padding-inline-end": 12
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
-            "group_zGryyP",
-            "product_card_add_to_cart_bpiYGq"
+            "group_zGryyP"
           ]
         }
       },
