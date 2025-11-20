@@ -10,11 +10,18 @@
   assign block_settings = block.settings
   assign animation_speed = 200
 
-  if block_settings.menu_style == 'featured_products' and block_settings.product_title_case == 'uppercase'
+  # Determine which menu style to use based on variant
+  if variant == 'mobile' or variant == 'navigation_bar'
+    assign current_menu_style = block_settings.menu_style_mobile
+  else
+    assign current_menu_style = block_settings.menu_style_desktop
+  endif
+
+  if current_menu_style == 'featured_products' and block_settings.product_title_case == 'uppercase'
     assign title_case_style = ' --title-case: uppercase;'
-  elsif block_settings.menu_style == 'featured_collections' and block_settings.collection_title_case == 'uppercase'
+  elsif current_menu_style == 'featured_collections' and block_settings.collection_title_case == 'uppercase'
     assign title_case_style = ' --title-case: uppercase;'
-  elsif block_settings.menu_style == 'collection_images' and block_settings.collection_title_case == 'uppercase'
+  elsif current_menu_style == 'collection_images' and block_settings.collection_title_case == 'uppercase'
     assign title_case_style = ' --title-case: uppercase;'
   endif
 %}
@@ -30,7 +37,8 @@
       {% render 'header-drawer',
         class: 'header__drawer--mobile',
         linklist: block_settings.menu,
-        data_header_drawer_type: 'mobile-drawer'
+        data_header_drawer_type: 'mobile-drawer',
+        menu_style: current_menu_style
       %}
     </div>
 
@@ -72,7 +80,7 @@
       style="--submenu-animation-speed: {{ animation_speed }}ms;{{ title_case_style }}"
     >
       <div class="header-menu__inner">
-        {%- render 'header-menu' %}
+        {%- render 'header-menu', menu_style: current_menu_style %}
       </div>
 
       <script
@@ -671,9 +679,14 @@
       "default": "main-menu"
     },
     {
+      "type": "header",
+      "content": "t:content.desktop_menu"
+    },
+    {
       "type": "select",
-      "id": "menu_style",
+      "id": "menu_style_desktop",
       "label": "t:settings.style",
+      "info": "Desktop menu style",
       "options": [
         {
           "value": "text",
@@ -695,6 +708,35 @@
       "default": "collection_images"
     },
     {
+      "type": "header",
+      "content": "t:content.mobile_menu"
+    },
+    {
+      "type": "select",
+      "id": "menu_style_mobile",
+      "label": "t:settings.style",
+      "info": "Mobile menu style",
+      "options": [
+        {
+          "value": "text",
+          "label": "t:options.text_only"
+        },
+        {
+          "value": "collection_images",
+          "label": "t:options.collection_images"
+        },
+        {
+          "value": "featured_products",
+          "label": "t:options.featured_products"
+        },
+        {
+          "value": "featured_collections",
+          "label": "t:options.featured_collections"
+        }
+      ],
+      "default": "text"
+    },
+    {
       "type": "select",
       "id": "featured_products_aspect_ratio",
       "label": "t:settings.image_ratio",
@@ -713,7 +755,7 @@
         }
       ],
       "default": "4 / 5",
-      "visible_if": "{{ block.settings.menu_style == 'featured_products' }}"
+      "visible_if": "{{ block.settings.menu_style_desktop == 'featured_products' or block.settings.menu_style_mobile == 'featured_products' }}"
     },
     {
       "type": "select",
@@ -734,7 +776,7 @@
         }
       ],
       "default": "16 / 9",
-      "visible_if": "{{ block.settings.menu_style == 'featured_collections' }}"
+      "visible_if": "{{ block.settings.menu_style_desktop == 'featured_collections' or block.settings.menu_style_mobile == 'featured_collections' }}"
     },
     {
       "type": "range",
@@ -745,7 +787,7 @@
       "step": 1,
       "unit": "px",
       "default": 0,
-      "visible_if": "{{ block.settings.menu_style != 'text' }}"
+      "visible_if": "{{ block.settings.menu_style_desktop != 'text' or block.settings.menu_style_mobile != 'text' }}"
     },
     {
       "type": "select",
@@ -762,7 +804,7 @@
         }
       ],
       "default": "default",
-      "visible_if": "{{ block.settings.menu_style == 'featured_products' }}"
+      "visible_if": "{{ block.settings.menu_style_desktop == 'featured_products' or block.settings.menu_style_mobile == 'featured_products' }}"
     },
     {
       "type": "select",
@@ -779,7 +821,7 @@
         }
       ],
       "default": "default",
-      "visible_if": "{{ block.settings.menu_style == 'featured_collections' or block.settings.menu_style == 'collection_images' }}"
+      "visible_if": "{{ block.settings.menu_style_desktop == 'featured_collections' or block.settings.menu_style_desktop == 'collection_images' or block.settings.menu_style_mobile == 'featured_collections' or block.settings.menu_style_mobile == 'collection_images' }}"
     },
     {
       "type": "color_scheme",
