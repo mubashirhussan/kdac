@@ -68,7 +68,6 @@
       "blocks": {
         "easy_tabs_product_tabs_easytabs_block_product_widget_fpagmU": {
           "type": "shopify://apps/easy-tabs-product-tabs/blocks/easytabs-block-product-widget/118e2a90-d31f-4cdf-b5c9-747e2bddd19a",
-          "disabled": true,
           "settings": {
             "placement_selector": "",
             "multiple_widgets": false
