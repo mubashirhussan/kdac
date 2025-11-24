@@ -156,9 +156,12 @@
         {% assign loading = 'lazy' %}
         {% assign sizes = lazy_image_sizes %}
 
-        {% if forloop.first and section.index == nil or section.index < 5 %}
-          {% assign loading = 'eager' %}
-          {% assign sizes = image_sizes %}
+        {% comment %} Load first two images eagerly to prevent flicker on hover {% endcomment %}
+        {% if forloop.index <= 2 %}
+          {% if section.index == nil or section.index < 5 %}
+            {% assign loading = 'eager' %}
+            {% assign sizes = image_sizes %}
+          {% endif %}
         {% endif %}
 
         {% assign attributes = '' %}
@@ -269,31 +272,58 @@
     border-radius: 0;
   }
 
-  /* Fix image blinking on hover - add smooth transitions and prevent layout shifts */
+  /* Fix image blinking on hover - pure CSS solution without JavaScript */
+  .card-gallery {
+    position: relative;
+  }
+
+  .card-gallery slideshow-slides {
+    scroll-behavior: auto !important;
+    overflow: hidden !important;
+    scroll-snap-type: none !important;
+  }
+
   .card-gallery slideshow-slide {
-    transition: opacity 0.3s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
   .card-gallery slideshow-slide img,
   .card-gallery slideshow-slide video {
-    transition: opacity 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    height: auto;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
-  .card-gallery slideshow-slides {
-    transition: transform 0.3s ease-in-out;
-  }
+  /* Pure CSS hover effect - hide first slide, show second slide on hover */
+  @media (hover: hover) and (pointer: fine) {
+    .card-gallery slideshow-slide:first-child {
+      opacity: 1;
+      transition: opacity 0.25s ease-in-out;
+    }
 
-  /* Optimize will-change for product card images */
-  .product-card:hover .card-gallery slideshow-slide img {
-    will-change: opacity;
-  }
+    .card-gallery slideshow-slide:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+      pointer-events: none;
+    }
 
-  /* Ensure smooth image loading without flashing */
-  .card-gallery img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    .card-gallery:hover slideshow-slide:first-child {
+      opacity: 0;
+    }
+
+    .card-gallery:hover slideshow-slide:nth-child(2) {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   .product-card-gallery__title-placeholder {

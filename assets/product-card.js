@@ -95,7 +95,14 @@ export class ProductCard extends Component {
 
   #preloadNextPreviewImage() {
     const currentSlide = this.refs.slideshow?.slides?.[this.refs.slideshow?.current];
-    currentSlide?.nextElementSibling?.querySelector('img[loading="lazy"]')?.removeAttribute('loading');
+    const nextSlide = currentSlide?.nextElementSibling;
+    if (!nextSlide) return;
+    
+    const nextImage = nextSlide.querySelector('img');
+    if (nextImage) {
+      // Remove lazy loading attribute
+      nextImage.removeAttribute('loading');
+    }
   }
 
   /**
@@ -284,6 +291,10 @@ export class ProductCard extends Component {
   }
   /** @type {number | null} */
   #previousSlideIndex = null;
+  /** @type {boolean} */
+  #isHovering = false;
+  /** @type {boolean} */
+  #isTransitioning = false;
 
   /**
    * Handles the slideshow select event.
@@ -313,20 +324,8 @@ export class ProductCard extends Component {
    * @param {PointerEvent} event - The pointer event.
    */
   previewImage(event) {
-    if (event.pointerType !== 'mouse') return;
-
-    const { slideshow } = this.refs;
-
-    if (!slideshow) return;
-
-    this.resetVariant.cancel();
-
-    if (this.#previousSlideIndex != null && this.#previousSlideIndex > 0) {
-      slideshow.select(this.#previousSlideIndex, undefined, { animate: true });
-    } else {
-      slideshow.next(undefined, { animate: true });
-      setTimeout(() => this.#preloadNextPreviewImage());
-    }
+    // Disabled JavaScript hover - using pure CSS solution to prevent flicker
+    return;
   }
 
   /**
@@ -334,16 +333,8 @@ export class ProductCard extends Component {
    * @param {PointerEvent} event - The pointer event.
    */
   resetImage(event) {
-    if (event.pointerType !== 'mouse') return;
-
-    const { slideshow } = this.refs;
-
-    if (!this.variantPicker) {
-      if (!slideshow) return;
-      slideshow.previous(undefined, { animate: true });
-    } else {
-      this.#resetVariant();
-    }
+    // Disabled JavaScript hover - using pure CSS solution to prevent flicker
+    return;
   }
 
   /**
@@ -353,6 +344,9 @@ export class ProductCard extends Component {
     const { slideshow } = this.refs;
 
     if (!slideshow) return;
+
+    // Don't reset if still hovering (prevents flicker on rapid mouse movements)
+    if (this.#isHovering) return;
 
     // If we have a selected variant, always use its image
     if (this.variantPicker?.selectedOption) {
@@ -431,7 +425,7 @@ export class ProductCard extends Component {
   /**
    * Resets the variant.
    */
-  resetVariant = debounce(this.#resetVariant, 100);
+  resetVariant = debounce(this.#resetVariant, 300);
 }
 
 if (!customElements.get('product-card')) {
