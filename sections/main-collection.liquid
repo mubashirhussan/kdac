@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 {% comment %} We always render this full-width, as the child blocks have width: page/full settings {% endcomment %}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <results-list
-  class="section product-grid-container color-{{ section.settings.color_scheme }}"
+  class="section container product-grid-container color-{{ section.settings.color_scheme }}"
   style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
   section-id="{{ section.id }}"
 >
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data-view-transition-id="{{ product.id }}"
                 ref="cards[]"
               >
-                {% content_for 'block', type: 'product-card', id: 'product-card', closest.product: product %}
+                {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
               </li>
             {% endfor %}
           {% endcapture %}
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
               data-view-transition-id="{{ product.id }}"
               ref="cards[]"
             >
-              {% content_for 'block', type: 'product-card', id: 'product-card', closest.product: product %}
+              {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
             </li>
           {% endfor %}
         {% endcapture %}
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ref="cards[]"
               >
                 {% # theme-check-disable %}
-                {% content_for 'block', type: 'product-card', id: 'product-card', closest.product: product %}
+                {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
                 {% # theme-check-enable %}
               </li>
             {% endfor %}
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ref="cards[]"
             >
               {% # theme-check-disable %}
-              {% content_for 'block', type: 'product-card', id: 'product-card', closest.product: product %}
+              {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
               {% # theme-check-enable %}
             </li>
           {% endfor %}
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
   "type": "range",
   "id": "products_per_page",
   "label": "Products per page",
-  "min": 0,
+  "min": 1,
       "max": 50,
       "step": 1,
       "default": 10,
