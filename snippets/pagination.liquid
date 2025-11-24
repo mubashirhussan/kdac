@@ -1,0 +1,69 @@
+{% comment %}
+  Custom Pagination Component
+  Usage: {% render 'pagination', paginate: paginate %}
+{% endcomment %}
+
+{% if paginate.pages > 1 %}
+    <nav class="pagination-wrapper" role="navigation" aria-label="Pagination">
+      <ul class="pagination-list" role="list">
+        {% if paginate.previous %}
+          <li>
+            <a href="{{ paginate.previous.url }}" class="pagination-link prev" aria-label="Previous">
+              &larr; Prev
+            </a>
+          </li>
+        {% endif %}
+  
+        {% for part in paginate.parts %}
+          <li>
+            {% if part.is_link %}
+              <a href="{{ part.url }}" class="pagination-link">{{ part.title }}</a>
+            {% else %}
+              <span class="pagination-link current">{{ part.title }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+  
+        {% if paginate.next %}
+          <li>
+            <a href="{{ paginate.next.url }}" class="pagination-link next" aria-label="Next">
+              Next &rarr;
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+  <style>
+    .pagination-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .pagination-list {
+    display: inline-flex;
+    list-style: none;
+    gap: 0.5rem;
+    padding: 0;
+  }
+  
+  .pagination-link {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: {{ section.settings.link_colorr }};
+    font-weight: 500;
+  }
+  
+  .pagination-link.current {
+    background-color: {{ section.settings.link_hover_colorr }};
+    color: {{ section.settings.link_hover_colorr-color }};
+    pointer-events: none;
+  }
+  
+  .pagination-link:hover {
+    background-color: {{ section.settings.current_colorr }};
+  }
+  
+  </style>
