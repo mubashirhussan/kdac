@@ -4309,11 +4309,12 @@ text-component {
   box-shadow: none !important;
 }
 
-
+/* QUICK ADD BUTTON HEIGHT FIX */
 
 @media screen and (min-width: 750px) {
+  /* Button hamesha layout me rahe, bas invisible by default */
   .quick-add__button {
-    display: grid !important;
+    display: grid !important;                /* pehle display: none hota tha */
     opacity: 0;
     margin-top: var(--padding-sm);
     transition:
@@ -4321,9 +4322,11 @@ text-component {
       margin-top var(--animation-speed) var(--animation-easing);
   }
 
+  /* Hover / focus pe sirf fade-in ho, height same rahe */
   .card-gallery:hover .quick-add__button,
   product-card:focus-within .quick-add__button {
     opacity: 1;
     margin-top: 0;
   }
 }
+
