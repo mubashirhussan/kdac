@@ -2368,250 +2368,6 @@
         "padding-block-end": 96
       }
     },
-    // "brands_grid_pdxq6W": {
-    //   "type": "brands-grid",
-    //   "blocks": {
-    //     "brand_8rK7A6": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1140.png",
-    //         "brand_name": "Berdis",
-    //         "brand_link": "https://kdac.com.au/collections/berdis"
-    //       }
-    //     },
-    //     "brand_X7ePCK": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1116.jpg",
-    //         "brand_name": "Blauberg",
-    //         "brand_link": "https://kdac.com.au/collections/blauberg"
-    //       }
-    //     },
-    //     "brand_mPjHhz": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1117.png",
-    //         "brand_name": "Clipsal",
-    //         "brand_link": "https://kdac.com.au/collections/clipsal"
-    //       }
-    //     },
-    //     "brand_ckVBYX": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1124.jpg",
-    //         "brand_name": "Crown",
-    //         "brand_link": "https://kdac.com.au/collections/crown"
-    //       }
-    //     },
-    //     "brand_3zVkkF": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1122.webp",
-    //         "brand_name": "Domus Lighting",
-    //         "brand_link": "https://kdac.com.au/collections/domus-lighting"
-    //       }
-    //     },
-    //     "brand_AYUkBe": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1118.png",
-    //         "brand_name": "Electra Cables",
-    //         "brand_link": "https://kdac.com.au/collections/electra-cables"
-    //       }
-    //     },
-    //     "brand_PRVb7F": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1156.png",
-    //         "brand_name": "Emerald",
-    //         "brand_link": "https://kdac.com.au/collections/emerald"
-    //       }
-    //     },
-    //     "brand_XfiTEi": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/1ccc73a0ba54ba75a1b14067d47e3c46.png",
-    //         "brand_name": "Hikvision",
-    //         "brand_link": "https://kdac.com.au/collections/hikvision"
-    //       }
-    //     },
-    //     "brand_VbEHTU": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/white-Photoroom-Photoroom_f91cd40c-e33e-48b1-9360-6e1a89eb7d92.png",
-    //         "brand_name": "KDAC",
-    //         "brand_link": "https://kdac.com.au/collections/kdac"
-    //       }
-    //     },
-    //     "brand_zNELje": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1132.jpg",
-    //         "brand_name": "Klein Tools",
-    //         "brand_link": "https://kdac.com.au/collections/klein-tools"
-    //       }
-    //     },
-    //     "brand_zPxTYY": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1158.jpg",
-    //         "brand_name": "KW",
-    //         "brand_link": "https://kdac.com.au/collections/kw"
-    //       }
-    //     },
-    //     "brand_FKgjic": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1133.png",
-    //         "brand_name": "Lexem",
-    //         "brand_link": "https://kdac.com.au/collections/lexem"
-    //       }
-    //     },
-    //     "brand_CTtYDV": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1119.png",
-    //         "brand_name": "Martec",
-    //         "brand_link": "https://kdac.com.au/collections/martec"
-    //       }
-    //     },
-    //     "brand_fb6T3K": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/007f321ece29fd2447fe14583ddebfc9.png",
-    //         "brand_name": "Mitsubishi Electric",
-    //         "brand_link": "https://kdac.com.au/collections/mitsubishi-electric"
-    //       }
-    //     },
-    //     "brand_X77YyU": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1138.png",
-    //         "brand_name": "Mitsubishi Heavy Industries",
-    //         "brand_link": "https://kdac.com.au/collections/mitsubishi-heavy-industries"
-    //       }
-    //     },
-    //     "brand_EKVLHQ": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1159.jpg",
-    //         "brand_name": "NLS",
-    //         "brand_link": "https://kdac.com.au/collections/nls"
-    //       }
-    //     },
-    //     "brand_xxcDkr": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1160.jpg",
-    //         "brand_name": "Omada",
-    //         "brand_link": "https://kdac.com.au/collections/omada"
-    //       }
-    //     },
-    //     "brand_hm3yUd": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1162.gif",
-    //         "brand_name": "PHL",
-    //         "brand_link": "https://kdac.com.au/collections/phl"
-    //       }
-    //     },
-    //     "brand_qkUTRL": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1121.png",
-    //         "brand_name": "Polyaire",
-    //         "brand_link": "https://kdac.com.au/collections/polyaire"
-    //       }
-    //     },
-    //     "brand_qraQyN": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1128.jpg",
-    //         "brand_name": "QZAO",
-    //         "brand_link": "https://kdac.com.au/collections/qzao"
-    //       }
-    //     },
-    //     "brand_3TLEMU": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/55d50257a201986cdbb4d0000c503eb5.png",
-    //         "brand_name": "Samsung",
-    //         "brand_link": "https://kdac.com.au/collections/samsung"
-    //       }
-    //     },
-    //     "brand_ei6eXQ": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1139.png",
-    //         "brand_name": "TCL",
-    //         "brand_link": "https://kdac.com.au/collections/tcl"
-    //       }
-    //     },
-    //     "brand_N7tz8w": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1130_10cefc06-40ae-4cdd-9bf2-5e8fad47e62c.png",
-    //         "brand_name": "Tesla",
-    //         "brand_link": "https://kdac.com.au/collections/tesla"
-    //       }
-    //     },
-    //     "brand_Fd8rzq": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1126.webp",
-    //         "brand_name": "Tradelike",
-    //         "brand_link": "https://kdac.com.au/collections/tradelike"
-    //       }
-    //     },
-    //     "brand_XNjzFJ": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_logo": "shopify://shop_images/IMG_1145.jpg",
-    //         "brand_name": "Ventair",
-    //         "brand_link": "https://kdac.com.au/collections/ventair"
-    //       }
-    //     },
-    //     "brand_jb3xda": {
-    //       "type": "brand",
-    //       "settings": {
-    //         "brand_name": "",
-    //         "brand_link": ""
-    //       }
-    //     }
-    //   },
-    //   "block_order": [
-    //     "brand_8rK7A6",
-    //     "brand_X7ePCK",
-    //     "brand_mPjHhz",
-    //     "brand_ckVBYX",
-    //     "brand_3zVkkF",
-    //     "brand_AYUkBe",
-    //     "brand_PRVb7F",
-    //     "brand_XfiTEi",
-    //     "brand_VbEHTU",
-    //     "brand_zNELje",
-    //     "brand_zPxTYY",
-    //     "brand_FKgjic",
-    //     "brand_CTtYDV",
-    //     "brand_fb6T3K",
-    //     "brand_X77YyU",
-    //     "brand_EKVLHQ",
-    //     "brand_xxcDkr",
-    //     "brand_hm3yUd",
-    //     "brand_qkUTRL",
-    //     "brand_qraQyN",
-    //     "brand_3TLEMU",
-    //     "brand_ei6eXQ",
-    //     "brand_N7tz8w",
-    //     "brand_Fd8rzq",
-    //     "brand_XNjzFJ",
-    //     "brand_jb3xda"
-    //   ],
-    //   "name": "Our Brands Grid",
-    //   "settings": {
-    //     "title": "Our Brands"
-    //   }
-    // },
     "1763589338fc476312": {
       "type": "_blocks",
       "blocks": {
@@ -2738,7 +2494,7 @@
         "gradient_direction": "to top",
         "padding-block-start": 0,
         "padding-block-end": 0
-      },
+      }
     },
     "custom_liquid_fLH9By": {
       "type": "custom-liquid",
@@ -3042,6 +2798,99 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "section_XfkhU9": {
+      "type": "section",
+      "blocks": {
+        "text_GiY4gp": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Contact us</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "contact_form_KWN46z": {
+          "type": "contact-form",
+          "settings": {
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "submit-button": {
+              "type": "contact-form-submit-button",
+              "static": true,
+              "settings": {
+                "label": "Submit",
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        }
+      },
+      "block_order": [
+        "text_GiY4gp",
+        "contact_form_KWN46z"
+      ],
+      "name": "t:names.contact_form",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
     }
   },
   "order": [
@@ -3057,6 +2906,7 @@
     "product_list_zGaND4",
     "1763589338fc476312",
     "custom_liquid_fLH9By",
-    "section_iw4pAm"
+    "section_iw4pAm",
+    "section_XfkhU9"
   ]
 }
