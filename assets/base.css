@@ -4330,3 +4330,9 @@ text-component {
   }
 }
 
+.product-card:hover,
+.collection-card:hover,
+.resource-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
