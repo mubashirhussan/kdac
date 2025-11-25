@@ -4338,23 +4338,23 @@ text-component {
 }
 /* FINAL FIX: prevents card from growing/shrinking */
 .product-grid__item {
-  position: relative;
+  position: relative !important;
 }
 
 /* Reserve fixed space for quick-add button always */
 .product-card .quick-add__button {
   height: 48px !important;     /* fixed reserved height */
   display: flex !important;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transition: opacity 0.25s ease !important;
   margin-top: 0 !important;    
-  pointer-events: none;        /* prevents ghost clicks */
+  pointer-events: none !important;        /* prevents ghost clicks */
 }
 
 /* On hover, just fade in – NO height change */
 .product-card:hover .quick-add__button {
   opacity: 1 !important;
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
