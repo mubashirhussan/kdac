@@ -119,25 +119,29 @@
 {% endstylesheet %} {% endcomment %}
 {% stylesheet %}
 
-/* Button height fixed + relative for overlay */
+/* Button container: full width, fixed height, relative for overlays */
 button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
-  height: 48px; /* exactly like your theme’s button height */
+  display: flex;                        /* override theme grid */
+  align-items: center;
+  justify-content: center;
+  width: 100%;                          /* so shrink na ho */
+  min-height: var(--height-buy-buttons, 48px);
 }
 
-/* Both layers overlap perfectly */
+/* Dono layers same jagah pe stacked */
 .add-to-cart-text,
 .add-to-cart-text--added {
   position: absolute;
   inset: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap-2xs);
 }
 
-/* Normal state */
+/* Default state */
 .add-to-cart-text {
   opacity: 1;
   animation-duration: var(--animation-speed);
@@ -146,7 +150,7 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
   transition: opacity var(--animation-speed) var(--animation-easing);
 }
 
-/* Hidden “Added” state */
+/* “Added” layer start me hidden */
 .add-to-cart-text--added {
   opacity: 0;
   animation-duration: var(--animation-speed);
@@ -155,7 +159,7 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
   transition: opacity var(--animation-speed) var(--animation-easing);
 }
 
-/* JS adds this class when item added */
+/* JS jab .atc-added class lagata hai */
 .atc-added .add-to-cart-text {
   animation-name: atc-slide-out;
 }
@@ -164,7 +168,7 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
   animation-name: atc-slide-in;
 }
 
-/* Enter */
+/* Slide in / out animations */
 @keyframes atc-slide-in {
   from {
     opacity: 0;
@@ -176,7 +180,6 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
   }
 }
 
-/* Exit */
 @keyframes atc-slide-out {
   from {
     opacity: 1;
