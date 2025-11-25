@@ -99,6 +99,12 @@ select {
 .product-card:hover {
   transform: none !important;
 }
+.product-card:hover,
+.collection-card:hover,
+.resource-card:hover {
+  transform: none !important;
+  transition: none !important;
+}
 .product-card__link {
   position: absolute;
   inset: 0;
