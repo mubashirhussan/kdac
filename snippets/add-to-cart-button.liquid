@@ -228,6 +228,21 @@ button.atc-added .add-to-cart-text--added {
   animation-name: atc-slide-in;
 }
 
+
+/* FIX QUICK-ADD ICON VISIBILITY */
+.quick-add__button {
+  opacity: 1 !important;          /* make icon fully visible */
+  display: flex !important;        /* restore flex layout */
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-add__button svg,
+.quick-add__button .svg-wrapper {
+  opacity: 1 !important;           /* prevent hidden SVG */
+  visibility: visible !important;
+}
+
 /* Animations */
 @keyframes atc-slide-in {
   from {
