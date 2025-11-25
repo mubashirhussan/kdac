@@ -81,12 +81,19 @@ select {
 }
 
 /* Only enable will-change on hover to prevent unnecessary repaints */
-.product-card:hover,
+/* .product-card:hover,
 .collection-card:hover,
 .resource-card:hover,
 .predictive-search-results__card--product:hover,
 .predictive-search-results__card:hover {
-  /* will-change: transform, box-shadow; */
+  will-change: transform, box-shadow;
+ 
+} */
+.product-card,
+.collection-card,
+.resource-card,
+.predictive-search-results__card,
+.predictive-search-results__card--product {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
