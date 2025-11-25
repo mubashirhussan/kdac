@@ -239,5 +239,11 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
 .atc-added .add-to-cart-text--added {
   opacity: 1;
 }
-
+/* QUICK-ADD CIRCLE ICON FIX  */
+/* circle (quick-add button) jab bhi visible ho, icon hamesha dikhe */
+.quick-add__button .svg-wrapper,
+.quick-add__button svg {
+  opacity: 1 !important;
+  transform: none !important;
+}
 {% endstylesheet %}
