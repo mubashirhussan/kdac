@@ -86,6 +86,7 @@
         "text_krhmm8",
         "contact_form_kmqfMQ"
       ],
+      "disabled": true,
       "name": "t:names.contact_form",
       "settings": {
         "content_direction": "column",
