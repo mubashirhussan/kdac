@@ -186,56 +186,58 @@
 button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
-  display: flex;                             /* theme ke grid ko override */
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: var(--height-buy-buttons, 48px);
 }
 
-/* Wrapper jo dono states ko hold kare */
+/* Wrapper for both states */
 .add-to-cart-label {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 1em;                           /* line-height stable */
 }
 
-/* Dono states overlay – height par koi asar nahi */
+/* ---------- ICON-FRIENDLY DEFAULT STATE (from your working code) ---------- */
 .add-to-cart-text {
-  position: absolute;
+  display: flex;                      /* ← icon handling restored */
+  gap: var(--gap-2xs);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 1;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: var(--animation-easing);
+  animation-fill-mode: forwards;
+  transition: opacity var(--animation-speed) var(--animation-easing);
+}
+
+/* ---------- ADDED STATE OVERLAY (from your working code) ---------- */
+.add-to-cart-text--added {
+  position: absolute;                 /* ← only this one overlays */
   inset: 0;
-  display: inline-flex;
+  display: flex;                      /* ← icon aligned correctly */
   align-items: center;
   justify-content: center;
   gap: var(--gap-2xs);
   opacity: 0;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: var(--animation-easing);
+  animation-fill-mode: forwards;
   transition: opacity var(--animation-speed) var(--animation-easing);
 }
 
-/* Default visible */
-.add-to-cart-text--default {
-  opacity: 1;
-}
-
-/* Added hidden initially */
-.add-to-cart-text--added {
-  opacity: 0;
-}
-
-/* JS jab .atc-added lagaye */
+/* When JS adds .atc-added */
 .atc-added .add-to-cart-text--default {
   opacity: 0;
 }
 
 .atc-added .add-to-cart-text--added {
   opacity: 1;
-}
-.add-to-cart-icon svg {
-  width: 34px;
-  height: 34px;
 }
 
 {% endstylesheet %}
