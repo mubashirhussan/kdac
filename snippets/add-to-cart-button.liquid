@@ -150,8 +150,9 @@
     class="button {{ class }}"
     {% unless can_add_to_cart %}disabled{% endunless %}
   >
+    <!-- LABEL WRAPPER – yahi layout fix karega -->
     <span class="add-to-cart-label">
-      <!-- default state -->
+      <!-- Default text -->
       <span class="add-to-cart-text add-to-cart-text--default">
         {% if can_add_to_cart %}
           <span class="svg-wrapper add-to-cart-icon">
@@ -163,7 +164,7 @@
         </span>
       </span>
 
-      <!-- added state -->
+      <!-- “Added” text -->
       <span
         aria-hidden="true"
         class="add-to-cart-text add-to-cart-text--added"
@@ -181,57 +182,56 @@
 
 {% stylesheet %}
 
-/* ------- SIRF MAIN ADD-TO-CART BUTTON KE LIYE ------- */
-
+/* Button: full width, fixed height, layout stable */
 button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
-  display: flex;
+  display: flex;                             /* theme ke grid ko override */
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: var(--height-buy-buttons, 48px);
 }
 
-/* label wrapper */
-button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-label {
+/* Wrapper jo dono states ko hold kare */
+.add-to-cart-label {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 1em;                           /* line-height stable */
 }
 
-/* dono states overlay */
-button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text {
+/* Dono states overlay – height par koi asar nahi */
+.add-to-cart-text {
   position: absolute;
   inset: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap-2xs);
+  opacity: 0;
   transition: opacity var(--animation-speed) var(--animation-easing);
 }
 
-/* default visible */
-button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text--default {
+/* Default visible */
+.add-to-cart-text--default {
   opacity: 1;
 }
 
-/* added hidden */
-button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text--added {
+/* Added hidden initially */
+.add-to-cart-text--added {
   opacity: 0;
 }
 
-/* JS se .atc-added class aane par switch */
-button[id^='BuyButtons-ProductSubmitButton-'].atc-added .add-to-cart-text--default {
+/* JS jab .atc-added lagaye */
+.atc-added .add-to-cart-text--default {
   opacity: 0;
 }
 
-button[id^='BuyButtons-ProductSubmitButton-'].atc-added .add-to-cart-text--added {
+.atc-added .add-to-cart-text--added {
   opacity: 1;
 }
-
-/* ------- QUICK-ADD BUBBLE KO CHHOD DO (koई global .add-to-cart-text rule nahin) ------- */
 
 {% endstylesheet %}
