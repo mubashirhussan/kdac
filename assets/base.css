@@ -4290,3 +4290,15 @@ text-component {
 .price .price-item {
   color: #00FF00 !important; /* Green for all prices */
 }
+.card-hover-effect-lift .product-card:hover,
+.card-hover-effect-scale .product-card:hover,
+.card-hover-effect-subtle-zoom .product-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.product-card:hover,
+.collection-card:hover,
+.resource-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
