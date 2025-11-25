@@ -150,61 +150,63 @@
     class="button {{ class }}"
     {% unless can_add_to_cart %}disabled{% endunless %}
   >
-    <!-- LABEL WRAPPER – yahi layout fix karega -->
-    <span class="add-to-cart-label">
-      <!-- Default text -->
-      <span class="add-to-cart-text add-to-cart-text--default">
-        {% if can_add_to_cart %}
-          <span class="svg-wrapper add-to-cart-icon">
-            {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
-          </span>
-        {% endif %}
-        <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
-          {{- add_to_cart_text | default: default_add_to_cart_text -}}
+    <!-- DEFAULT STATE -->
+    <span class="add-to-cart-text add-to-cart-text--default">
+      {% if can_add_to_cart %}
+        <span class="svg-wrapper add-to-cart-icon">
+          {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
         </span>
+      {% endif %}
+      <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
+        {{- add_to_cart_text | default: default_add_to_cart_text -}}
       </span>
+    </span>
 
-      <!-- “Added” text -->
-      <span
-        aria-hidden="true"
-        class="add-to-cart-text add-to-cart-text--added"
-      >
-        <span class="svg-wrapper add-to-cart-icon--added">
-          {{- 'icon-checkmark.svg' | inline_asset_content -}}
-        </span>
-        <span class="{% if icon_only_on_mobile %}is-visually-hidden-mobile{% endif %}">
-          {{- 'actions.added' | t -}}
-        </span>
+    <!-- ADDED STATE (overlay) -->
+    <span
+      aria-hidden="true"
+      class="add-to-cart-text add-to-cart-text--added"
+    >
+      <span class="svg-wrapper add-to-cart-icon--added">
+        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+      </span>
+      <span class="{% if icon_only_on_mobile %}is-visually-hidden-mobile{% endif %}">
+        {{- 'actions.added' | t -}}
       </span>
     </span>
   </button>
 </add-to-cart-component>
 
+
 {% stylesheet %}
 
-/* Button: full width, fixed height, layout stable */
+/* Button ko stable banate hain */
 button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
-  display: flex;                             /* theme ke grid ko override */
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: var(--height-buy-buttons, 48px);
 }
 
-/* Wrapper jo dono states ko hold kare */
-.add-to-cart-label {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 1em;                           /* line-height stable */
-}
-
-/* Dono states overlay – height par koi asar nahi */
+/* Base layout – yahan original icon + text ka look maintain hoga */
 .add-to-cart-text {
+  display: inline-flex;
+  gap: var(--gap-2xs);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: var(--animation-easing);
+  animation-fill-mode: forwards;
+  transition: opacity var(--animation-speed) var(--animation-easing);
+}
+
+/* DEFAULT: visible */
+.add-to-cart-text--default {
+  opacity: 1;
+}
+
+/* ADDED: upar overlap kare, hidden by default */
+.add-to-cart-text--added {
   position: absolute;
   inset: 0;
   display: inline-flex;
@@ -212,26 +214,43 @@ button[id^='BuyButtons-ProductSubmitButton-'] {
   justify-content: center;
   gap: var(--gap-2xs);
   opacity: 0;
-  transition: opacity var(--animation-speed) var(--animation-easing);
+  pointer-events: none;
 }
 
-/* Default visible */
-.add-to-cart-text--default {
-  opacity: 1;
+/* Jahan bhi .atc-added lage (component ya button), dono cases cover */
+.atc-added .add-to-cart-text--default,
+button.atc-added .add-to-cart-text--default {
+  animation-name: atc-slide-out;
 }
 
-/* Added hidden initially */
-.add-to-cart-text--added {
-  opacity: 0;
+.atc-added .add-to-cart-text--added,
+button.atc-added .add-to-cart-text--added {
+  animation-name: atc-slide-in;
 }
 
-/* JS jab .atc-added lagaye */
-.atc-added .add-to-cart-text--default {
-  opacity: 0;
+/* Animations */
+@keyframes atc-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.atc-added .add-to-cart-text--added {
-  opacity: 1;
+@keyframes atc-slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-1em);
+    opacity: 0;
+  }
 }
 
 {% endstylesheet %}
