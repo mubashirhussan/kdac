@@ -4302,6 +4302,15 @@ text-component {
   transform: none !important;
   box-shadow: none !important;
 }
+.product-card:hover,
+.collection-card:hover,
+.resource-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+
 @media screen and (min-width: 750px) {
   .quick-add__button {
     display: grid !important;
