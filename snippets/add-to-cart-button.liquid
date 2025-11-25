@@ -1,4 +1,4 @@
-{% comment %} {%- doc -%}
+{%- doc -%}
   Renders an "Add to cart" button with dynamic text and state. It shows different text based on whether the product can be added to the cart and provides visual feedback when an item is added.
 
   @param {boolean} can_add_to_cart - Whether the product can be added to the cart.
@@ -59,7 +59,7 @@
   </button>
 </add-to-cart-component>
 
-{% stylesheet %}
+{% comment %} {% stylesheet %}
   .add-to-cart-text {
     display: flex;
     gap: var(--gap-2xs);
@@ -117,9 +117,6 @@
     }
   }
 {% endstylesheet %} {% endcomment %}
-
-
-
 {% stylesheet %}
 
 /* Button height fixed + relative for overlay */
