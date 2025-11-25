@@ -86,7 +86,8 @@ select {
 .resource-card:hover,
 .predictive-search-results__card--product:hover,
 .predictive-search-results__card:hover {
-  will-change: transform, box-shadow;
+  /* will-change: transform, box-shadow; */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .product-card__link {
