@@ -89,13 +89,7 @@ select {
   will-change: transform, box-shadow;
  
 }
-.product-card,
-.collection-card,
-.resource-card,
-.predictive-search-results__card,
-.predictive-search-results__card--product {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+
 
 .product-card__link {
   position: absolute;
@@ -4289,72 +4283,4 @@ text-component {
 }
 .price .price-item {
   color: #00FF00 !important; /* Green for all prices */
-}
-.card-hover-effect-lift .product-card:hover,
-.card-hover-effect-scale .product-card:hover,
-.card-hover-effect-subtle-zoom .product-card:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-.product-card:hover,
-.collection-card:hover,
-.resource-card:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-.product-card:hover,
-.collection-card:hover,
-.resource-card:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* QUICK ADD BUTTON HEIGHT FIX */
-
-@media screen and (min-width: 750px) {
-  /* Button hamesha layout me rahe, bas invisible by default */
-  .quick-add__button {
-    display: grid !important;                /* pehle display: none hota tha */
-    opacity: 0;
-    margin-top: var(--padding-sm);
-    transition:
-      opacity var(--animation-speed) var(--animation-easing),
-      margin-top var(--animation-speed) var(--animation-easing);
-  }
-
-  /* Hover / focus pe sirf fade-in ho, height same rahe */
-  .card-gallery:hover .quick-add__button,
-  product-card:focus-within .quick-add__button {
-    opacity: 1;
-    margin-top: 0;
-  }
-}
-
-.product-card:hover,
-.collection-card:hover,
-.resource-card:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-/* FINAL FIX: prevents card from growing/shrinking */
-.product-grid__item {
-  position: relative !important;
-}
-
-/* Reserve fixed space for quick-add button always */
-.product-card .quick-add__button {
-  height: 48px !important;     /* fixed reserved height */
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  opacity: 0 !important;
-  transition: opacity 0.25s ease !important;
-  margin-top: 0 !important;    
-  pointer-events: none !important;        /* prevents ghost clicks */
-}
-
-/* On hover, just fade in – NO height change */
-.product-card:hover .quick-add__button {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
