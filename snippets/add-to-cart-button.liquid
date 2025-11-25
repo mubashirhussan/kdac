@@ -150,128 +150,88 @@
     class="button {{ class }}"
     {% unless can_add_to_cart %}disabled{% endunless %}
   >
-    <!-- DEFAULT STATE -->
-    <span class="add-to-cart-text add-to-cart-text--default">
-      {% if can_add_to_cart %}
-        <span class="svg-wrapper add-to-cart-icon">
-          {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+    <span class="add-to-cart-label">
+      <!-- default state -->
+      <span class="add-to-cart-text add-to-cart-text--default">
+        {% if can_add_to_cart %}
+          <span class="svg-wrapper add-to-cart-icon">
+            {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+          </span>
+        {% endif %}
+        <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
+          {{- add_to_cart_text | default: default_add_to_cart_text -}}
         </span>
-      {% endif %}
-      <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
-        {{- add_to_cart_text | default: default_add_to_cart_text -}}
       </span>
-    </span>
 
-    <!-- ADDED STATE (overlay) -->
-    <span
-      aria-hidden="true"
-      class="add-to-cart-text add-to-cart-text--added"
-    >
-      <span class="svg-wrapper add-to-cart-icon--added">
-        {{- 'icon-checkmark.svg' | inline_asset_content -}}
-      </span>
-      <span class="{% if icon_only_on_mobile %}is-visually-hidden-mobile{% endif %}">
-        {{- 'actions.added' | t -}}
+      <!-- added state -->
+      <span
+        aria-hidden="true"
+        class="add-to-cart-text add-to-cart-text--added"
+      >
+        <span class="svg-wrapper add-to-cart-icon--added">
+          {{- 'icon-checkmark.svg' | inline_asset_content -}}
+        </span>
+        <span class="{% if icon_only_on_mobile %}is-visually-hidden-mobile{% endif %}">
+          {{- 'actions.added' | t -}}
+        </span>
       </span>
     </span>
   </button>
 </add-to-cart-component>
 
-
 {% stylesheet %}
 
-/* Button ko stable banate hain */
+/* ------- SIRF MAIN ADD-TO-CART BUTTON KE LIYE ------- */
+
 button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
-}
-
-/* Base layout – yahan original icon + text ka look maintain hoga */
-.add-to-cart-text {
-  display: inline-flex;
-  gap: var(--gap-2xs);
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  text-align: center;
-  animation-duration: var(--animation-speed);
-  animation-timing-function: var(--animation-easing);
-  animation-fill-mode: forwards;
-  transition: opacity var(--animation-speed) var(--animation-easing);
+  min-height: var(--height-buy-buttons, 48px);
 }
 
-/* DEFAULT: visible */
-.add-to-cart-text--default {
-  opacity: 1;
+/* label wrapper */
+button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-/* ADDED: upar overlap kare, hidden by default */
-.add-to-cart-text--added {
+/* dono states overlay */
+button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text {
   position: absolute;
   inset: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--gap-2xs);
+  transition: opacity var(--animation-speed) var(--animation-easing);
+}
+
+/* default visible */
+button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text--default {
+  opacity: 1;
+}
+
+/* added hidden */
+button[id^='BuyButtons-ProductSubmitButton-'] .add-to-cart-text--added {
   opacity: 0;
-  pointer-events: none;
 }
 
-/* Jahan bhi .atc-added lage (component ya button), dono cases cover */
-.atc-added .add-to-cart-text--default,
-button.atc-added .add-to-cart-text--default {
-  animation-name: atc-slide-out;
+/* JS se .atc-added class aane par switch */
+button[id^='BuyButtons-ProductSubmitButton-'].atc-added .add-to-cart-text--default {
+  opacity: 0;
 }
 
-.atc-added .add-to-cart-text--added,
-button.atc-added .add-to-cart-text--added {
-  animation-name: atc-slide-in;
+button[id^='BuyButtons-ProductSubmitButton-'].atc-added .add-to-cart-text--added {
+  opacity: 1;
 }
 
-
-/* FIX QUICK-ADD ICON VISIBILITY */
-.quick-add__button {
-  opacity: 1 !important;          /* make icon fully visible */
-  display: flex !important;        /* restore flex layout */
-  align-items: center;
-  justify-content: center;
-}
-
-.quick-add__button svg,
-.quick-add__button .svg-wrapper {
-  opacity: 1 !important;           /* prevent hidden SVG */
-  visibility: visible !important;
-}
-
-/* Animations */
-@keyframes atc-slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.5em);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes atc-slide-out {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-1em);
-    opacity: 0;
-  }
-}
-.card-gallery .quick-add__button *,
-.quick-add__button * {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
+/* ------- QUICK-ADD BUBBLE KO CHHOD DO (koई global .add-to-cart-text rule nahin) ------- */
 
 {% endstylesheet %}
