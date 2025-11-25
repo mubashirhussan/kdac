@@ -96,7 +96,9 @@ select {
 .predictive-search-results__card--product {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
+.product-card:hover {
+  transform: none !important;
+}
 .product-card__link {
   position: absolute;
   inset: 0;
