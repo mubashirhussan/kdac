@@ -48,6 +48,14 @@
     {{ content_for_header }}
 
     <!-- Website Speedy Scripts -->
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5WLHGCMJ');</script>
+<!-- End Google Tag Manager -->
+
     <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_1.js" defer></script>
     <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_2.js" defer></script>
     <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_3.js" defer></script>
@@ -80,6 +88,10 @@
     >
       {{ content_for_layout }}
     </main>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WLHGCMJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
     {% sections 'footer-group' %}
     {% render 'search-modal' %}
