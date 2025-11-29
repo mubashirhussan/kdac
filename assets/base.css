@@ -17,6 +17,19 @@ body {
   margin: 0 auto;
   padding: 32px 16px;
 }
+:root {
+  /* Standard Heading Sizes */
+  --font-size-heading-1: 36px;
+  --font-size-heading-2: 30px;
+  --font-size-heading-3: 24px;
+  --font-size-heading-4: 20px;
+  --font-size-heading-5: 18px;
+  --font-size-heading-6: 16px;
+
+  /* Standard Paragraph Size */
+  --font-size-body: 16px;
+}
+
 
 :root {
   --hover-lift-amount: 4px;
