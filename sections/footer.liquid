@@ -21,6 +21,7 @@
       layout-panel-flex
       layout-panel-flex--{{ section.settings.content_direction }}
       section-content-wrapper
+      footer-columns
       {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
     "
     style="
@@ -31,6 +32,37 @@
     {% content_for 'blocks' %}
   </div>
 </div>
+{% stylesheet %}
+  /* Footer columns layout */
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Desktop: 4 columns */
+  @media (min-width: 1024px) {
+    .footer-columns > * {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  /* Tablet: 2 columns */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .footer-columns > * {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* Mobile: 1 column */
+  @media (max-width: 639px) {
+    .footer-columns > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
