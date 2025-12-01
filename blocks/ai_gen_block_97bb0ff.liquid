@@ -133,6 +133,34 @@
  {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
+ /* --- FIX PAGE BEING PUSHED WIDE BY SLIDER --- */
+
+/* SLIDER CONTAINER MUST NOT ALLOW WIDE CONTENT TO AFFECT PAGE WIDTH */
+.ai-brand-slider-{{ ai_gen_id }},
+.ai-brand-slider-container-{{ ai_gen_id }},
+.ai-brand-slider-wrapper-{{ ai_gen_id }},
+.ai-brand-slider-track-container-{{ ai_gen_id }} {
+  width: 100%;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* TRACK SHOULD NEVER AFFECT PAGE WIDTH */
+.ai-brand-slider-track-{{ ai_gen_id }} {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  max-width: 100% !important;
+  overflow: visible;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* EACH SLIDE FIXED SIZE — RESPONSIVE */
+.ai-brand-slider-slide-{{ ai_gen_id }} {
+  flex: 0 0 auto;
+}
+
   .ai-brand-slider-{{ ai_gen_id }} {
     width: 100%;
     /* page se bahar na nikle */
