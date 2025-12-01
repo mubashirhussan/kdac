@@ -1,7 +1,5 @@
-
-
 <div
-  class="footer-utilities spacing-style"
+  class="footer-utilities spacing-style footer-utilities--{{ block.settings.layout_direction }}"
   style="{% render 'spacing-style', settings: block.settings %} --border-width: {{ block.settings.divider_thickness }}px;"
   {{ block.shopify_attributes }}
 >
@@ -19,19 +17,29 @@
   .footer-utilities {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  /* mobile always vertical */
     align-items: center;
     gap: var(--gap-lg);
     text-wrap: nowrap;
     border-top: var(--border-width) solid var(--color-border);
     color: var(--color-foreground-muted);
+  }
 
-    @media screen and (min-width: 750px) {
+  /* DESKTOP LAYOUTS – controlled from theme setting */
+  @media screen and (min-width: 750px) {
+    .footer-utilities--horizontal {
       flex-direction: row;
       justify-content: space-between;
       gap: var(--gap-md);
       align-items: center;
       text-align: left;
+    }
+
+    .footer-utilities--vertical {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--gap-lg);
+      text-align: center;
     }
   }
 
@@ -75,6 +83,20 @@
   "name": "t:names.footer_utilities",
   "tag": null,
   "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_direction",
+      "label": "Layout direction (desktop)",
+      "options": [
+        { "value": "horizontal", "label": "Horizontal (left / right)" },
+        { "value": "vertical", "label": "Vertical (stacked)" }
+      ],
+      "default": "horizontal"
+    },
     {
       "type": "header",
       "content": "t:content.appearance"
