@@ -20,30 +20,12 @@
   .footer-utilities {
     width: 100%;
     display: flex;
-    flex-direction: column; /* mobile: vertical */
+    flex-direction: column; /* mobile & vertical default: stacked */
     align-items: center;
     gap: var(--gap-lg);
     text-wrap: nowrap;
     border-top: var(--border-width) solid var(--color-border);
     color: var(--color-foreground-muted);
-  }
-
-  /* DESKTOP LAYOUTS – theme setting se control */
-  @media screen and (min-width: 750px) {
-    .footer-utilities--horizontal {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: var(--gap-md);
-      align-items: center;
-      text-align: left;
-    }
-
-    .footer-utilities--vertical {
-      flex-direction: column;
-      align-items: center;
-      gap: var(--gap-lg);
-      text-align: center;
-    }
   }
 
   .footer-utilities a {
@@ -55,26 +37,51 @@
     display: flex;
     flex: 1 1 max-content;
     text-align: center;
-    flex-direction: column;
+    flex-direction: column;   /* row nahi, column -> har group ek row */
     align-items: center;
     flex-wrap: wrap;
     gap: var(--gap-md);
   }
 
+  /* DESKTOP LAYOUTS – sirf yahan se farq padega */
   @media screen and (min-width: 750px) {
-    .footer-utilities__group {
+    /* HORIZONTAL: 3 columns in one row */
+    .footer-utilities--horizontal {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--gap-md);
+      align-items: center;
+      text-align: left;
+    }
+
+    .footer-utilities--horizontal .footer-utilities__group {
       flex-direction: row;
       align-items: baseline;
       gap: var(--gap-2xs) var(--gap-xl);
       text-align: left;
     }
 
-    .footer-utilities__group--right {
+    .footer-utilities--horizontal .footer-utilities__group--right {
       justify-content: flex-end;
     }
 
-    .footer-utilities__group--middle {
-      justify-content: center; /* beech wali column center aligned */
+    .footer-utilities--horizontal .footer-utilities__group--middle {
+      justify-content: center;
+    }
+
+    /* VERTICAL: desktop par bhi 3 separate rows, sab center aligned */
+    .footer-utilities--vertical {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--gap-lg);
+      text-align: center;
+    }
+
+    .footer-utilities--vertical .footer-utilities__group {
+      flex-direction: column;    /* rows hi rahenge  */
+      align-items: center;
+      text-align: center;
+      gap: var(--gap-md);
     }
   }
 
@@ -100,7 +107,7 @@
       "label": "Layout direction (desktop)",
       "options": [
         { "value": "horizontal", "label": "Horizontal (left / center / right)" },
-        { "value": "vertical", "label": "Vertical (stacked)" }
+        { "value": "vertical", "label": "Vertical (3 rows, centered)" }
       ],
       "default": "horizontal"
     },
