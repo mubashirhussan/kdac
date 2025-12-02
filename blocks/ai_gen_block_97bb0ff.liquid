@@ -135,18 +135,30 @@
     }
   }
   {% comment %} /* Tablet view: 750px – 1024px (iPad, small laptop etc.) */ {% endcomment %}
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
+/* 1024px se upar → Full width */
+@media screen and (min-width: 1024px) {
   .ai-brand-slider-container-{{ ai_gen_id }} {
-    max-width: 800px;
+    max-width: 100% !important;
     padding: 0 20px;
   }
 }
+
+/* 768px – 1023px → max-width: 800px */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .ai-brand-slider-container-{{ ai_gen_id }} {
-    max-width: 685px;
+    max-width: 800px !important;
+    padding: 0 20px;
+  }
+}
+
+/* 425px – 767px → max-width: 685px */
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .ai-brand-slider-container-{{ ai_gen_id }} {
+    max-width: 685px !important;
     padding: 0 16px;
   }
 }
+
 
 
 {% endstyle %}
