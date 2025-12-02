@@ -72,6 +72,7 @@
     border-radius: {{ block.settings.logo_border_radius }}px;
     padding: 16px;
     transition: transform 0.3s ease;
+    box-sizing: border-box;
   }
 
   .ai-brand-slider-logo-wrapper-{{ ai_gen_id }}:hover {
@@ -128,8 +129,28 @@
     .ai-brand-slider-header-{{ ai_gen_id }} {
       margin-bottom: 30px;
     }
+
+    .ai-brand-slider-logo-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.logo_title_size | times: 0.9 }}px;
+    }
   }
+  {% comment %} /* Tablet view: 750px – 1024px (iPad, small laptop etc.) */ {% endcomment %}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .ai-brand-slider-container-{{ ai_gen_id }} {
+    max-width: 800px;
+    padding: 0 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .ai-brand-slider-container-{{ ai_gen_id }} {
+    max-width: 685px;
+    padding: 0 16px;
+  }
+}
+
+
 {% endstyle %}
+
 
 <brand-slider-{{ ai_gen_id }} class="ai-brand-slider-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
   <div class="ai-brand-slider-container-{{ ai_gen_id }}">
