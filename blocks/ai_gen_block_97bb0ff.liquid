@@ -134,7 +134,7 @@
       font-size: {{ block.settings.logo_title_size | times: 0.9 }}px;
     }
   }
-  /* Tablet view: 750px – 1024px (iPad, small laptop etc.) */
+  {% comment %} /* Tablet view: 750px – 1024px (iPad, small laptop etc.) */ {% endcomment %}
 @media screen and (min-width: 750px) and (max-width: 1024px) {
   .ai-brand-slider-container-{{ ai_gen_id }} {
     max-width: 100%;
