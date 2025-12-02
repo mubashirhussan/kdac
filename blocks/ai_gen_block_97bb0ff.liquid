@@ -135,30 +135,19 @@
     }
   }
   {% comment %} /* Tablet view: 750px – 1024px (iPad, small laptop etc.) */ {% endcomment %}
-@media screen and (min-width: 750px) and (max-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
   .ai-brand-slider-container-{{ ai_gen_id }} {
-    max-width: 100%;
-    padding: 0 16px;
-  }
-
-  .ai-brand-slider-slide-{{ ai_gen_id }} {
-    /* Desktop se thora chhota, mobile se thora bada */
-    width: {{ block.settings.logo_width | times: 0.85 }}px;
-  }
-
-  .ai-brand-slider-logo-wrapper-{{ ai_gen_id }} {
-    height: {{ block.settings.logo_height | times: 0.85 }}px;
-    padding: 14px;
-  }
-
-  .ai-brand-slider-title-{{ ai_gen_id }} {
-    font-size: {{ block.settings.title_size | times: 0.9 }}px;
-  }
-
-  .ai-brand-slider-logo-title-{{ ai_gen_id }} {
-    font-size: {{ block.settings.logo_title_size | times: 0.95 }}px;
+    max-width: 800px;
+    padding: 0 20px;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .ai-brand-slider-container-{{ ai_gen_id }} {
+    max-width: 685px;
+    padding: 0 16px;
+  }
+}
+
 
 {% endstyle %}
 
