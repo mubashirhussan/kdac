@@ -49,22 +49,51 @@
 
     <!-- Website Speedy Scripts -->
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+{% comment %} <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5WLHGCMJ');</script>
+})(window,document,'script','dataLayer','GTM-5WLHGCMJ');</script> {% endcomment %}
 <!-- End Google Tag Manager -->
 
-    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_1.js" defer></script>
+    {% comment %} <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_1.js" defer></script>
     <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_2.js" defer></script>
-    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_3.js" defer></script>
+    <script type='text/javascript' src="https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/ecmrx_11382_3.js" defer></script> {% endcomment %}
   </head>
 
 
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function loadGTM() {
+    if (window.gtmLoaded) return;
+    window.gtmLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5WLHGCMJ';
+    document.head.appendChild(s);
+  }
+  ['click','scroll','mousemove','touchstart','keydown'].forEach(e =>
+    window.addEventListener(e, loadGTM, { once: true, passive: true })
+  );
+</script>
+<script>
+  function loadSpeedy() {
+    if (window.speedyLoaded) return;
+    window.speedyLoaded = true;
+    ['ecmrx_11382_1','ecmrx_11382_2','ecmrx_11382_3'].forEach(f => {
+      var s = document.createElement('script');
+      s.src = 'https://websitespeedycdn5.b-cdn.net/speedyscripts/ecmrx_11382/' + f + '.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    });
+  }
+  ['click','scroll','touchstart'].forEach(e =>
+    window.addEventListener(e, loadSpeedy, { once: true, passive: true })
+  );
+</script>
 
 
 
