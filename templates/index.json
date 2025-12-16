@@ -2034,7 +2034,7 @@
         "image_CAiGNp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/s-l1600_7c117654-397b-40c3-a149-4dd97c45d4b3.png",
+            "image": "shopify://shop_images/daikin_img.webp",
             "link": "shopify://products/daikin-brp15b61-wifi-aircon-controller",
             "image_ratio": "square",
             "width": "fill",
@@ -2204,7 +2204,7 @@
         "image_b6Jr7b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Domus_Infinity.png",
+            "image": "shopify://shop_images/daikin_img.webp",
             "link": "shopify://products/infinity-6-in-1-premium-slimline-bathroom-heater",
             "image_ratio": "square",
             "width": "fill",
