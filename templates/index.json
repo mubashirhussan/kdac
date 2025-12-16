@@ -18,7 +18,7 @@
         "video_1": "shopify://files/videos/Price Match 2.mp4",
         "media_type_2": "image",
         "link": "shopify://collections/all",
-        "open_in_new_tab": true,
+        "open_in_new_tab": false,
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
