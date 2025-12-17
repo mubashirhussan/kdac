@@ -29,16 +29,14 @@
   data-media-id="{{ media.id }}"
 >
   {% liquid
-    assign high_res_url = media.preview_image | image_url: width: 1200
+    assign high_res_url = media.preview_image
     assign fetch_priority = 'auto'
     if is_main_product_media
       assign fetch_priority = 'high'
     endif
   %}
   {{
-    media.preview_image
-    | image_url: width: 1200
-    | image_tag:
+    media.preview_image| image_tag:
       widths: widths,
       alt: media.alt,
      sizes: image_sizes,
@@ -63,7 +61,7 @@
           >
             {{
               media.preview_image
-              | image_url: width: 1200
+           
               | image_tag:
                 widths: widths,
                 alt: media.alt,
