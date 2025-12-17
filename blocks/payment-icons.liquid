@@ -23,7 +23,10 @@
         src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/AP_logo_badge_6328x2204_blackmint_png-6328x2204-4ffc2bc.png?v=1760662714"
         alt="Afterpay"
         class="custom-payment-icon"
-        loading="lazy"
+         width="120"
+  height="28"
+  loading="lazy"
+        
       >
     </li>
 
@@ -32,7 +35,9 @@
         src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/Zip.png?v=1760663048"
         alt="Zip Pay"
         class="custom-payment-icon zip-icon"
-        loading="lazy"
+         width="120"
+  height="28"
+  loading="lazy"
       >
     </li>
 
@@ -41,7 +46,9 @@
         src="https://cdn.shopify.com/s/files/1/0701/7607/9972/files/IMG_1184.png?v=1760662198"
         alt="Klarna"
         class="custom-payment-icon"
-        loading="lazy"
+          width="120"
+  height="28"
+  loading="lazy"
       >
     </li>
   </ul>
@@ -70,7 +77,7 @@
 .payment-icons__item img,
 .payment-icons__item svg,
 .custom-payment-icon {
-  height: 28px;
+  max-height: 28px;
   width: auto;
   border-radius: 4px;
   background-color: #fff;
@@ -82,7 +89,7 @@
 
 /* Zip icon balanced for better alignment */
 .custom-payment-icon.zip-icon {
-  height: 27px;
+   max-height: 28px;
   margin-top: 1px;
 }
 {% endstylesheet %}
