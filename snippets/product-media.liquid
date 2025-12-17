@@ -13,14 +13,19 @@
   @param {boolean} [is_main_product_media] - Indicates if this is the main product image.
 
   @example
-  {% render 'product-media', media: media, preview_image_only: false, loading: 'lazy' %}
+  {% render 'product-media', media: media,  context: 'card', preview_image_only: false, loading: 'lazy' %}
 {%- enddoc -%}
 
 {% liquid
-  assign widths = widths | default: '240, 360, 480, 600, 750, 900, 1200'
-assign image_sizes = '(min-width: 990px) 50vw, 100vw'
-  
-
+  if context == 'card'
+    assign widths = '180, 240, 300, 360, 420'
+    assign image_sizes = '(min-width: 1200px) 300px, (min-width: 750px) 25vw, 50vw'
+    assign loading = 'lazy'
+    assign fetch_priority = 'auto'
+  else
+    assign widths = '360, 480, 600, 750, 900, 1200'
+    assign image_sizes = '(min-width: 990px) 50vw, 100vw'
+  endif
 %}
 
 <div
