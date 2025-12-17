@@ -62,7 +62,7 @@
   {% if card_image %}
  <img src="{{ card_image | file_url }}" width="166" height="166" alt="{{ collection.title }}" loading="lazy" class="image-block__image">
 
-  {% else %}
+  {% comment %} {% else %}
     <img
       src="{{ 'placeholder-collection.png' | asset_url }}"
       width="166"
@@ -70,7 +70,7 @@
       alt="Placeholder"
       loading="lazy"
       class="image-block__image"
-    >
+    > {% endcomment %}
   {% endif %}
 </div>
 
