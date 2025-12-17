@@ -60,14 +60,8 @@
   <div class="collection-card__inner">
     <div class="collection-card__image">
   {% if card_image %}
-    <img
-      src="{{ card_image }}"
-      width="166"
-      height="166"
-      alt="{{ collection.title }}"
-      loading="lazy"
-      class="image-block__image"
-    >
+ <img src="{{ card_image | file_url }}" width="166" height="166" alt="{{ collection.title }}" loading="lazy" class="image-block__image">
+
   {% else %}
     <img
       src="{{ 'placeholder-collection.png' | asset_url }}"
