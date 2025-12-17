@@ -23,7 +23,7 @@ assign image_sizes = '(min-width: 990px) 50vw, 100vw'
 
 %}
 
-{% comment %} <div
+ <div
   class="product-media"
   style="--ratio: {{ media.aspect_ratio }}"
   data-media-id="{{ media.id }}"
@@ -132,124 +132,8 @@ assign image_sizes = '(min-width: 990px) 50vw, 100vw'
         -%}
     {% endcase %}
   {% endunless %}
-</div> {% endcomment %}
-<div
-  class="product-media"
-  style="--ratio: {{ media.aspect_ratio }}"
-  data-media-id="{{ media.id }}"
->
-  {% liquid
-    assign high_res_url = media.preview_image | image_url: width: 1200
-    assign fetch_priority = 'auto'
-    if is_main_product_media
-      assign fetch_priority = 'high'
-    endif
-  %}
-  {% assign width = 1200 %}
-  {% assign height = width | times: media.aspect_ratio %}  <!-- Dynamically calculate height using aspect ratio -->
+</div> 
 
-  <img 
-    src="{{ media.preview_image | image_url: width: 240 }}" 
-    srcset="{{ media.preview_image | image_url: width: 240 }} 240w, 
-            {{ media.preview_image | image_url: width: 360 }} 360w, 
-            {{ media.preview_image | image_url: width: 480 }} 480w,
-            {{ media.preview_image | image_url: width: 600 }} 600w, 
-            {{ media.preview_image | image_url: width: 750 }} 750w, 
-            {{ media.preview_image | image_url: width: 900 }} 900w, 
-            {{ media.preview_image | image_url: width: 1200 }} 1200w"
-      sizes="(max-width: 750px) 100vw, (max-width: 990px) 50vw, 33vw"
-    alt="{{ media.alt }}"
-    class="product-media__image"
-    loading="{{ loading | default: 'lazy' }}"
-    fetchpriority="{{ fetch_priority }}"
-      width="289"   
-  height="289"  
-  >
-
-  {% unless preview_image_only %}
-    {%- case media.media_type -%}
-      {% when 'model' %}
-        <product-model
-          class="product-model-wrapper"
-          data-media-id="{{ media.id }}"
-        >
-          <button
-            class="button deferred-media__poster-button button-unstyled"
-            ref="deferredMediaPlayButton"
-            on:click="/showDeferredMedia"
-          >
-            {{
-              media.preview_image
-              | image_url: width: 1200
-              | image_tag:
-                widths: widths,
-                alt: media.alt,
-                sizes: image_sizes,
-                loading: loading,
-                class: 'deferred-media__poster-image'
-            }}
-            <span class="deferred-media__poster-icon">
-              <span class="visually-hidden">{{ 'accessibility.play_model' | t }}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-                class="icon icon-3d-model"
-                fill="none"
-                viewBox="0 0 18 21"
-              >
-                {% render 'icon', icon: '3d-model' %}
-              </svg>
-            </span>
-          </button>
-
-          <template>
-            {% # Should I be using media_tag here instead like on Dawn? 🤔 %}
-            {{ media | model_viewer_tag }}
-          </template>
-        </product-model>
-        <button
-          class="button button-secondary button-shopify-xr"
-          type="button"
-          data-shopify-xr
-          data-shopify-model3d-id="{{ media.id }}"
-          data-shopify-title="{{ selected_product.title | escape }}"
-          data-shopify-xr-hidden
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            focusable="false"
-            class="icon icon-3d-model"
-            fill="none"
-            viewBox="0 0 18 21"
-          >
-            {% render 'icon', icon: '3d-model' %}
-          </svg>
-          {{ 'actions.view_in_your_space' | t }}
-        </button>
-
-        {%- if first_3d_model -%}
-          <script
-            type="application/json"
-            id="ProductModelJSON-{{ selected_product.id }}"
-          >
-            {{ selected_product.media | where: 'media_type', 'model' | json }}
-          </script>
-        {%- endif -%}
-      {% when 'video', 'external_video' %}
-        {%- render 'video',
-          video: media,
-          video_loop: block.settings.video_loop,
-          widths: widths,
-          sizes: image_sizes,
-          loading: loading,
-          disable_controls: true,
-          section_id: section.id
-        -%}
-    {% endcase %}
-  {% endunless %}
-</div>
 
 
 
