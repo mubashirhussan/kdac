@@ -58,7 +58,29 @@
     <span class="visually-hidden">{{ collection.title }}</span>
   </a>
   <div class="collection-card__inner">
-    {{ card_image }}
+    <div class="collection-card__image">
+  {% if card_image %}
+    <img
+      src="{{ card_image }}"
+      width="166"
+      height="166"
+      alt="{{ collection.title }}"
+      loading="lazy"
+      class="image-block__image"
+    >
+  {% else %}
+    <img
+      src="{{ 'placeholder-collection.png' | asset_url }}"
+      width="166"
+      height="166"
+      alt="Placeholder"
+      loading="lazy"
+      class="image-block__image"
+    >
+  {% endif %}
+</div>
+
+    {% comment %} {{ card_image }} {% endcomment %}
     <div class="collection-card__content layout-panel-flex--column">
       {{ children }}
     </div>
