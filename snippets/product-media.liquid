@@ -157,7 +157,7 @@ assign image_sizes = '(min-width: 990px) 50vw, 100vw'
             {{ media.preview_image | image_url: width: 750 }} 750w, 
             {{ media.preview_image | image_url: width: 900 }} 900w, 
             {{ media.preview_image | image_url: width: 1200 }} 1200w"
-    sizes="{{ image_sizes }}"
+      sizes="(max-width: 750px) 100vw, (max-width: 990px) 50vw, 33vw"
     alt="{{ media.alt }}"
     class="product-media__image"
     loading="{{ loading | default: 'lazy' }}"
