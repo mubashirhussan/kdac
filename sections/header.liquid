@@ -269,9 +269,13 @@
     position: relative;
   }
 
-  #header-group:has(#header-component[sticky]) {
-    display: contents;
-  }
+ 
+  #header-group {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
 
 
   .header__row {
