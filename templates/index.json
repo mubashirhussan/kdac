@@ -2500,7 +2500,7 @@
       "type": "custom-liquid",
       "name": "t:names.custom_liquid",
       "settings": {
-        "custom_liquid": "<!-- Elfsight Google Reviews | Google Reviews Shopify -->\n<script src=\"https://elfsightcdn.com/platform.js\" async></script>\n<div class=\"elfsight-app-19d27473-2851-43bd-ab89-05ec130e955e\" data-elfsight-app-lazy></div>",
+        "custom_liquid": "<!-- Elfsight Google Reviews | Google Reviews Shopify -->\n<script src=\"https://elfsightcdn.com/platform.js\" async></script>\n<div class=\"elfsight-app-19d27473-2851-43bd-ab89-05ec130e955e\" data-elfsight-app-lazy></div>\n</div>",
         "color_scheme": "",
         "section_width": "page-width",
         "padding-block-start": 0,
