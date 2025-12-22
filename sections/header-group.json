@@ -17,7 +17,7 @@
       "settings": {
         "custom_liquid": "<div style=\"background:#fff3cd; border:1px solid #ffeeba; padding:12px; text-align:center; font-weight:600;\">\n  ⚠️ Holiday Delay Notice: Shipping will ship out on the 12/1.\n</div>",
         "color_scheme": "",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -141,7 +141,7 @@
         "localization_font_size": "1.125rem",
         "localization_position": "right",
         "localization_row": "top",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "standard",
         "enable_sticky_header": "always",
         "divider_width": 0,
