@@ -722,7 +722,7 @@
                 "show_number": true,
                 "rating_color": "primary",
                 "type_preset": "paragraph",
-                "alignment": "left"
+                "alignment": "center"
               },
               "blocks": {}
             },
